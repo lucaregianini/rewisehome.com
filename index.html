@@ -43,7 +43,7 @@
       <a class="link-arrow" href="how-it-works.html">See how it works</a>
     </div>
     <p class="price-tag"><strong>€27.99</strong> everything included</p>
-    <img class="product" src="img/rewise-air.png" alt="Rewise Air, a round grey puck with the rewise wordmark and an infrared window" width="1156" height="655" fetchpriority="high">
+    <img class="product" src="img/air-hero.webp" alt="Rewise Air: a round slate-grey puck with a textured top, the rewise wordmark, an infrared window, sensor vents and a USB-C port" width="1400" height="1176" fetchpriority="high">
   </div>
 </section>
 
@@ -58,6 +58,50 @@
       <div class="stat"><b>40+</b><span>AC brands recognised from one press of the remote</span></div>
       <div class="stat"><b>€27.99</b><span>once. Every feature included</span></div>
     </div>
+  </div>
+</section>
+
+<section class="surface" id="remote">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Your remote still works</p>
+      <h2>Press the remote.<br><span class="accent-text">The app already knows.</span></h2>
+      <p class="sub">Rewise Air has its own infrared receiver. When anyone at home uses the normal remote, it hears it and the app updates in a second. No out-of-date screens, no fighting between remote and phone.</p>
+    </div>
+    <div class="sync reveal" role="img" aria-label="Someone presses the AC remote. Rewise Air hears it and the Rewise app updates from 24 to 22 degrees.">
+  <div class="sync-remote" aria-hidden="true"><span class="lcd">22°</span><span class="btn b1"></span><span class="btn b2"></span><span class="btn b3"></span><span class="btn b4"></span></div>
+  <div class="sync-waves" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="sync-puck" aria-hidden="true"><span>rewise</span></div>
+  <div class="sync-waves wifi" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="sync-phone" aria-hidden="true">
+    <small>Living Room</small>
+    <div class="temp"><span class="old">24°</span><span class="new">22°</span></div>
+    <small class="mode">Cool · Auto fan</small>
+    <span class="toast">Changed with the remote</span>
+  </div>
+</div>
+    <div class="mini-points reveal">
+      <div><b>Hears every press</b><span>Power, temperature, mode and fan from the original remote.</span></div>
+      <div><b>Always in sync</b><span>The app, Siri, Alexa and your automations see the real state.</span></div>
+      <div><b>Nothing to change</b><span>Keep the remote on the table. Rewise works alongside it.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap split">
+    <div class="reveal">
+      <p class="eyebrow">Design</p>
+      <h2>Small enough<br><span class="gradient">to disappear.</span></h2>
+      <p class="sub">A palm-sized puck with a soft, textured finish. It sits on a shelf, sees your AC through its infrared window, and quietly reads the room.</p>
+      <ul class="ticks">
+        <li>Infrared window that sends and receives</li>
+        <li>Temperature and humidity sensor behind open vents</li>
+        <li>USB-C power from any phone charger</li>
+        <li>Wi-Fi and Bluetooth built in</li>
+      </ul>
+    </div>
+    <img class="reveal shot" src="img/air-top.webp" alt="Rewise Air seen from above: textured slate-grey top with the rewise wordmark and an oval infrared window" width="1000" height="983" loading="lazy" decoding="async">
   </div>
 </section>
 
@@ -104,9 +148,32 @@
     <div class="steps reveal">
       <div class="step"><h3>Place it</h3><p>Put Rewise Air where it can see your AC, and plug it into any USB-C charger.</p></div>
       <div class="step"><h3>Connect it</h3><p>The Rewise app finds it over Bluetooth and puts it on your home Wi-Fi.</p></div>
-      <div class="step"><h3>Press your remote once</h3><p>Rewise recognises your AC from its remote and takes it from there.</p></div>
+      <div class="step"><h3>Press your remote once</h3><p>Rewise recognises your AC from its remote and takes it from there. Keep the remote: Rewise follows it.</p></div>
     </div>
     <div class="actions reveal"><a class="link-arrow" href="how-it-works.html">Read the setup guide</a></div>
+  </div>
+</section>
+
+<section class="surface" id="plans">
+  <div class="wrap">
+    <div class="reveal"><p class="eyebrow">Plans</p><h2>One room or the whole home.</h2>
+      <p class="sub">Buy a Rewise Air for one room. Want every room? Borrow more with Rewise Home.</p></div>
+    <div class="plans reveal">
+      <div class="plan">
+        <p class="plan-name">Rewise Air</p>
+        <div class="plan-price">€27.99</div>
+        <p class="plan-per">one payment</p>
+        <ul><li>One Rewise Air for one room</li><li>Every feature, no subscription</li><li>Yours to keep, two-year guarantee</li></ul>
+        <a class="pill" href="get.html#reserve">Reserve Yours</a>
+      </div>
+      <div class="plan featured" id="home-plan">
+        <p class="plan-name">Rewise Home <span class="soon">Coming soon</span></p>
+        <div class="plan-price">€7.99<small>/month</small></div>
+        <p class="plan-per">on a 12-month plan, or €9.99/month for 6 months</p>
+        <ul><li>Up to 3 more Rewise Air units, on loan</li><li>Every room in the home, one app</li><li>For anyone who owns a Rewise Air</li></ul>
+        <a class="pill gray" href="get.html#reserve" data-plan="home">Register Interest</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -117,9 +184,13 @@
       <h2>€27.99. <span class="gradient">Everything included.</span></h2>
       <p class="sub">The first Rewise Air units are being made in small batches in Malta. Leave your name and email, and we’ll get in touch when yours is ready. No payment now.</p>
     </div>
-    <form class="form-card signup reveal" novalidate>
+    <form class="form-card signup reveal" id="reserve" novalidate>
   <label class="field"><span>Name</span><input name="name" autocomplete="name" required maxlength="80" placeholder="Your name"></label>
   <label class="field"><span>Email</span><input name="email" type="email" autocomplete="email" inputmode="email" required maxlength="254" placeholder="name@example.com"></label>
+  <fieldset class="field choice"><span>I’m interested in</span>
+    <label><input type="radio" name="plan" value="air" checked> Rewise Air <small>€27.99</small></label>
+    <label><input type="radio" name="plan" value="home"> Rewise Home <small>from €7.99/mo</small></label>
+  </fieldset>
   <label class="field"><span>Country <small style="font-weight:400;color:var(--muted)">(optional)</small></span>
     <select name="country" autocomplete="country-name">
       <option value="">Choose…</option><option>Malta</option><option>Italy</option><option>United Kingdom</option><option>Ireland</option>
@@ -141,7 +212,7 @@
       <div class="brand"><picture><source srcset="/img/rewise-wordmark-dark.png" media="(prefers-color-scheme: dark)"><img src="/img/rewise-wordmark.png" alt="rewise" width="93" height="30"></picture></div>
       <p>Makes the air conditioner you already own smart. Designed in Malta.</p>
     </div>
-    <div><h4>Rewise Air</h4><a href="/">Overview</a><a href="features.html">Features</a><a href="how-it-works.html">How it works</a><a href="compatibility.html">Compatibility</a><a href="get.html">Get Rewise Air</a></div>
+    <div><h4>Rewise Air</h4><a href="/">Overview</a><a href="features.html">Features</a><a href="how-it-works.html">How it works</a><a href="compatibility.html">Compatibility</a><a href="get.html">Get Rewise Air</a><a href="get.html#home-plan">Rewise Home plan</a></div>
     <div><h4>Help</h4><a href="support.html">Support and FAQ</a><a href="how-it-works.html#setup">Setup guide</a><a href="delete-account.html">Delete your account</a><a href="mailto:support@rewisehome.com">support@rewisehome.com</a></div>
     <div><h4>Legal</h4><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div>
     <div class="legal"><span>© 2026 Rewise, Malta. All rights reserved.</span><span>Apple, iPhone and Siri are trademarks of Apple Inc. Amazon and Alexa are trademarks of Amazon.com, Inc. or its affiliates.</span></div>

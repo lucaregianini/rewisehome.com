@@ -64,6 +64,7 @@
         body: JSON.stringify({
           name: name.value.trim(), email: email.value.trim(),
           country: form.elements.country ? form.elements.country.value : "",
+          plan: form.querySelector("input[name=plan]:checked") ? form.querySelector("input[name=plan]:checked").value : "air",
           website: form.elements.website ? form.elements.website.value : ""
         })
       }).then(function (response) {
@@ -84,6 +85,18 @@
       });
     });
   });
+
+  // "Register Interest" on the Rewise Home card picks that plan in the form.
+  document.querySelectorAll("[data-plan]").forEach(function (link) {
+    link.addEventListener("click", function () {
+      var radio = document.querySelector('form.signup input[name=plan][value="' + link.dataset.plan + '"]');
+      if (radio) radio.checked = true;
+    });
+  });
+  if (location.hash === "#home-plan") {
+    var home = document.querySelector('form.signup input[name=plan][value="home"]');
+    if (home) home.checked = true;
+  }
 
   // Compatibility checker
   var search = document.getElementById("brand-search");

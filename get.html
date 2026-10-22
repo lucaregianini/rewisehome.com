@@ -37,10 +37,14 @@
   <div class="wrap">
     <p class="eyebrow">Get Rewise Air</p>
     <h1>€27.99.</h1>
-    <p class="sub">Every feature included: the app, control from anywhere, automations, energy estimates, Siri and Alexa. No subscription for early units.</p>
-    <form class="form-card signup reveal" novalidate>
+    <p class="sub">Every feature included: the app, control from anywhere, automations, energy estimates, Siri and Alexa. No subscription for early units. Need more rooms? Choose Rewise Home below.</p>
+    <form class="form-card signup reveal" id="reserve" novalidate>
   <label class="field"><span>Name</span><input name="name" autocomplete="name" required maxlength="80" placeholder="Your name"></label>
   <label class="field"><span>Email</span><input name="email" type="email" autocomplete="email" inputmode="email" required maxlength="254" placeholder="name@example.com"></label>
+  <fieldset class="field choice"><span>I’m interested in</span>
+    <label><input type="radio" name="plan" value="air" checked> Rewise Air <small>€27.99</small></label>
+    <label><input type="radio" name="plan" value="home"> Rewise Home <small>from €7.99/mo</small></label>
+  </fieldset>
   <label class="field"><span>Country <small style="font-weight:400;color:var(--muted)">(optional)</small></span>
     <select name="country" autocomplete="country-name">
       <option value="">Choose…</option><option>Malta</option><option>Italy</option><option>United Kingdom</option><option>Ireland</option>
@@ -56,6 +60,29 @@
 </section>
 <section class="surface">
   <div class="wrap">
+    <div class="reveal"><p class="eyebrow">Plans</p><h2>One room or the whole home.</h2>
+      <p class="sub">Buy a Rewise Air for one room. Want every room? Borrow more with Rewise Home.</p></div>
+    <div class="plans reveal">
+      <div class="plan">
+        <p class="plan-name">Rewise Air</p>
+        <div class="plan-price">€27.99</div>
+        <p class="plan-per">one payment</p>
+        <ul><li>One Rewise Air for one room</li><li>Every feature, no subscription</li><li>Yours to keep, two-year guarantee</li></ul>
+        <a class="pill" href="get.html#reserve">Reserve Yours</a>
+      </div>
+      <div class="plan featured" id="home-plan">
+        <p class="plan-name">Rewise Home <span class="soon">Coming soon</span></p>
+        <div class="plan-price">€7.99<small>/month</small></div>
+        <p class="plan-per">on a 12-month plan, or €9.99/month for 6 months</p>
+        <ul><li>Up to 3 more Rewise Air units, on loan</li><li>Every room in the home, one app</li><li>For anyone who owns a Rewise Air</li></ul>
+        <a class="pill gray" href="get.html#reserve" data-plan="home">Register Interest</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <img class="reveal shot" style="max-width:420px;margin:0 auto 8px" src="img/air-angle.webp" alt="Rewise Air at an angle, showing the sensor vents and the textured top" width="1200" height="1028" loading="lazy" decoding="async">
     <div class="price-card reveal" style="margin-top:0">
       <p class="eyebrow" style="margin-bottom:16px">What’s in the box</p>
       <div class="amount">€27.99</div>
@@ -78,7 +105,7 @@
       <div class="brand"><picture><source srcset="/img/rewise-wordmark-dark.png" media="(prefers-color-scheme: dark)"><img src="/img/rewise-wordmark.png" alt="rewise" width="93" height="30"></picture></div>
       <p>Makes the air conditioner you already own smart. Designed in Malta.</p>
     </div>
-    <div><h4>Rewise Air</h4><a href="/">Overview</a><a href="features.html">Features</a><a href="how-it-works.html">How it works</a><a href="compatibility.html">Compatibility</a><a href="get.html">Get Rewise Air</a></div>
+    <div><h4>Rewise Air</h4><a href="/">Overview</a><a href="features.html">Features</a><a href="how-it-works.html">How it works</a><a href="compatibility.html">Compatibility</a><a href="get.html">Get Rewise Air</a><a href="get.html#home-plan">Rewise Home plan</a></div>
     <div><h4>Help</h4><a href="support.html">Support and FAQ</a><a href="how-it-works.html#setup">Setup guide</a><a href="delete-account.html">Delete your account</a><a href="mailto:support@rewisehome.com">support@rewisehome.com</a></div>
     <div><h4>Legal</h4><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a></div>
     <div class="legal"><span>© 2026 Rewise, Malta. All rights reserved.</span><span>Apple, iPhone and Siri are trademarks of Apple Inc. Amazon and Alexa are trademarks of Amazon.com, Inc. or its affiliates.</span></div>
