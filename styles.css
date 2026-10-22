@@ -31,7 +31,8 @@ a:hover { text-decoration: underline; }
   border-radius: 999px; background: rgba(251, 250, 247, .72);
   backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%);
   box-shadow: 0 8px 32px rgba(0,0,0,.06), inset 0 0 0 .5px rgba(29,29,31,.08); }
-.wordmark { font-size: 21px; font-weight: 600; letter-spacing: -.02em; color: var(--ink); }
+.wordmark { display: inline-flex; align-items: center; line-height: 0; }
+.wordmark img { height: 26px; width: auto; display: block; }
 .wordmark:hover { text-decoration: none; }
 .wordmark .dot { color: var(--accent); }
 .nav-links { display: flex; align-items: center; gap: 24px; font-size: 14px; }
