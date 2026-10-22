@@ -155,7 +155,7 @@ h3 { letter-spacing: -.012em; }
   box-shadow: inset 0 0 0 .5px var(--line), 0 30px 60px -40px rgba(0,0,0,.25); }
 .dark .form-card { background: var(--dark-card); box-shadow: inset 0 0 0 1px rgba(255,255,255,.08); }
 .field { display: block; margin-bottom: 16px; }
-.field span { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+.field > span { display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px; }
 .field input, .field select { width: 100%; min-height: 46px; border-radius: 14px; border: 0; padding: 0 16px; font: inherit; font-size: 16px;
   color: var(--ink); background: var(--surface); box-shadow: inset 0 0 0 1px transparent; transition: box-shadow .2s var(--ease); appearance: none; }
 .dark .field input, .dark .field select { background: #2c2c2e; color: var(--dark-text); }
@@ -194,8 +194,13 @@ h3 { letter-spacing: -.012em; }
 .sync-waves i:nth-child(2) { animation-delay: .12s; } .sync-waves i:nth-child(3) { animation-delay: .24s; }
 .sync-waves.wifi i { background: var(--accent); animation-name: beam2; }
 .sync-waves.wifi i:nth-child(2) { animation-delay: .12s; } .sync-waves.wifi i:nth-child(3) { animation-delay: .24s; }
-.sync-puck { width: 150px; }
-.sync-puck .puck { width: 100%; height: auto; display: block; filter: drop-shadow(0 12px 14px rgba(0,0,0,.25)); }
+/* The puck: round, slate grey, wordmark in the middle, IR window towards the upper right on a diagonal. */
+.puck-css { display: inline-grid; place-items: center; position: relative; flex: none; width: 6.5em; height: 6.5em; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #8a96a0, #5d6871 70%); box-shadow: 0 1.1em 1.9em -.9em rgba(0,0,0,.5), inset 0 -.38em 0 rgba(0,0,0,.18); }
+.puck-css span { color: #f5f5f7; font-weight: 700; font-size: .94em; letter-spacing: -.02em; }
+.puck-css::after { content: ""; position: absolute; top: 1.1em; right: .8em; width: 2.25em; height: 1.25em; border-radius: .625em;
+  background: #1d1f22; transform: rotate(48deg); }
+.sync-puck { font-size: 16px; display: grid; place-items: center; }
 .sync-phone { width: 150px; padding: 18px 14px 16px; border-radius: 26px; background: #f7f5f1; color: #1d1d1f; text-align: left; position: relative;
   box-shadow: inset 0 0 0 5px #1d1d1f, 0 20px 40px -20px rgba(0,0,0,.4); }
 .sync-phone small { display: block; font-size: 11px; color: #6e6e73; padding-left: 4px; }
@@ -357,19 +362,13 @@ footer .brand img { height: 22px; width: auto; margin-bottom: 10px; }
 .shot { width: 100%; max-width: 480px; margin: 0 auto; }
 .hero .product { width: min(620px, 92%); }
 
-/* Puck art in the plan cards and the sign-up choices */
-.plan-art { height: 92px; display: flex; align-items: flex-end; margin-bottom: 14px; }
-.plan-art .puck { flex: none; width: 117px; height: 80px; filter: drop-shadow(0 8px 10px rgba(0,0,0,.18)); }
-.plan-art.three .puck { width: 92px; height: 63px; }
-.plan-art.three .puck + .puck { margin-left: -46px; }
-.plan-art.three .puck:nth-child(1) { transform: translateY(-16px) scale(.86); opacity: .8; }
-.plan-art.three .puck:nth-child(2) { transform: translateY(-8px) scale(.93); opacity: .9; }
+/* Puck icons in the sign-up choices */
 .choice input { position: absolute; opacity: 0; pointer-events: none; width: 1px; height: 1px; min-height: 0; padding: 0; }
 .choice label { position: relative; }
-.choice-art { display: flex; align-items: center; justify-content: flex-start; width: 72px; height: 34px; flex: none; }
-.choice-art .puck { flex: none; width: 46px; height: 31px; }
-.choice-art.three .puck { width: 36px; height: 25px; }
-.choice-art.three .puck + .puck { margin-left: -19px; }
-.choice-art.three .puck:nth-child(1) { transform: translateY(-4px) scale(.86); }
-.choice-art.three .puck:nth-child(2) { transform: translateY(-2px) scale(.93); }
+.choice-art { display: flex; align-items: center; width: 64px; flex: none; font-size: 5px; }
+.choice-art .puck-css { box-shadow: 0 .6em 1em -.5em rgba(0,0,0,.45), inset 0 -.38em 0 rgba(0,0,0,.18); }
+.choice-art .puck-css span { font-size: 1.05em; }
+.choice-art.three .puck-css + .puck-css { margin-left: -3.6em; }
+.choice-art.three .puck-css:nth-child(1) { transform: translateY(-.9em) scale(.84); opacity: .75; }
+.choice-art.three .puck-css:nth-child(2) { transform: translateY(-.45em) scale(.92); opacity: .9; }
 .choice label:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
