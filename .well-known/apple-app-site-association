@@ -1,0 +1,13 @@
+{
+  "webcredentials": {
+    "apps": ["868M25DMZG.com.rewise.app"]
+  },
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["868M25DMZG.com.rewise.app"],
+        "components": [{ "/": "/join*", "comment": "Family invites open the Rewise app" }]
+      }
+    ]
+  }
+}

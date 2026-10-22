@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Join a Rewise Home</title>
+<meta name="description" content="You've been invited to a home in Rewise.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="nav" aria-label="Main">
+  <a class="wordmark" href="/">rew<span class="dot">i</span>se</a>
+  <div class="nav-links"><a class="pill" href="mailto:support@rewisehome.com">Get Help</a></div>
+</nav>
+<main class="doc">
+  <h1>You're invited.</h1>
+  <p class="updated">Someone shared their home in Rewise with you, so you can control its air conditioning too.</p>
+  <h2>Your invite code</h2>
+  <p class="note" style="font-size:28px;font-weight:600;letter-spacing:.06em;font-family:ui-monospace,SFMono-Regular,Menlo,monospace" id="code">Open this link on your iPhone</p>
+  <h2>How to join</h2>
+  <ul>
+    <li>If Rewise is installed, this link opens it. Sign in, and the invite is filled in for you.</li>
+    <li>Otherwise, install Rewise, sign in, then go to Settings → Account → Join a Home and enter the code above.</li>
+  </ul>
+</main>
+<footer><div class="wrap"><span>© Rewise</span><span><a href="/privacy">Privacy</a><a href="/terms">Terms</a></span></div></footer>
+<script>
+  // The code travels in the #fragment, so it's never sent to the web server.
+  var code = decodeURIComponent(location.hash.slice(1)).replace(/[^A-Za-z0-9-]/g, "").slice(0, 12);
+  if (code) document.getElementById("code").textContent = code.toUpperCase();
+</script>
+</body>
+</html>
