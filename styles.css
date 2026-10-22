@@ -198,9 +198,9 @@ h3 { letter-spacing: -.012em; }
 .puck-css { display: inline-grid; place-items: center; position: relative; flex: none; width: 6.5em; height: 6.5em; border-radius: 50%;
   background: radial-gradient(circle at 35% 30%, #8a96a0, #5d6871 70%); box-shadow: 0 1.1em 1.9em -.9em rgba(0,0,0,.5), inset 0 -.38em 0 rgba(0,0,0,.18); }
 .puck-css span { color: #f5f5f7; font-weight: 700; font-size: .94em; letter-spacing: -.02em; transform: translateX(-.62em); }
-/* IR window: an upright pill on the right, vertically centred (as on the real puck). */
-.puck-css::after { content: ""; position: absolute; top: 50%; right: .62em; width: 1.08em; height: 2.6em; border-radius: .54em;
-  background: #1d1f22; transform: translateY(-50%); }
+/* IR window: an upright pill on the right whose bottom lines up with the bottom of the wordmark (as on the real puck). */
+.puck-css::after { content: ""; position: absolute; top: 1.68em; right: .66em; width: 1.02em; height: 1.82em; border-radius: .51em;
+  background: #1d1f22; }
 .sync-puck { font-size: 16px; display: grid; place-items: center; }
 .sync-phone { width: 150px; padding: 18px 14px 16px; border-radius: 26px; background: #f7f5f1; color: #1d1d1f; text-align: left; position: relative;
   box-shadow: inset 0 0 0 5px #1d1d1f, 0 20px 40px -20px rgba(0,0,0,.4); }
