@@ -1,0 +1,40 @@
+# Checks the Rewise Server from outside the home every 10 minutes. When it stops answering,
+# opens an issue labelled server-down (GitHub emails the owner) and sends a phone push via
+# ntfy if the NTFY_TOPIC secret is set; when it answers again, closes the issue and says so.
+name: Server watch
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+permissions:
+  issues: write
+concurrency:
+  group: server-watch
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check api.rewisehome.com
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+        run: |
+          ok=false
+          for attempt in 1 2 3; do
+            if curl -fsS --max-time 15 -A "RewiseWatch/1.0" https://api.rewisehome.com/v1/health | grep -q '"ok": *true'; then ok=true; break; fi
+            sleep 20
+          done
+          notify() { [ -n "$NTFY_TOPIC" ] && curl -fsS -H "Title: $1" -H "Tags: $3" -d "$2" "https://ntfy.sh/$NTFY_TOPIC" >/dev/null || true; }
+          open=$(gh issue list -R "$REPO" --label server-down --state open --json number --jq '.[0].number // empty')
+          if $ok; then
+            if [ -n "$open" ]; then
+              gh issue close "$open" -R "$REPO" -c "Back online at $(date -u '+%H:%M') UTC."
+              notify "Rewise server back online" "api.rewisehome.com answers again." "white_check_mark"
+            fi
+          elif [ -z "$open" ]; then
+            gh issue create -R "$REPO" --label server-down --title "Rewise server offline" \
+              --body "api.rewisehome.com/v1/health stopped answering at $(date -u '+%Y-%m-%d %H:%M') UTC (3 tries, 20 s apart). Check the HA box, the home internet and the Rewise Server add-on."
+            notify "Rewise server OFFLINE" "api.rewisehome.com isn't answering. Check the HA box and the internet." "rotating_light"
+          fi
