@@ -6,6 +6,11 @@ on:
   schedule:
     - cron: "*/10 * * * *"
   workflow_dispatch:
+    inputs:
+      test:
+        description: "Pretend the server is down (tests the alert, then run again normally to close it)"
+        type: boolean
+        default: false
 permissions:
   issues: write
 concurrency:
@@ -22,8 +27,9 @@ jobs:
           NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
         run: |
           ok=false
+          if [ "${{ inputs.test }}" = "true" ]; then URL=https://api.rewisehome.com/v1/does-not-exist; else URL=https://api.rewisehome.com/v1/health; fi
           for attempt in 1 2 3; do
-            if curl -fsS --max-time 15 -A "RewiseWatch/1.0" https://api.rewisehome.com/v1/health | grep -q '"ok": *true'; then ok=true; break; fi
+            if curl -fsS --max-time 15 -A "RewiseWatch/1.0" "$URL" | grep -q '"ok": *true'; then ok=true; break; fi
             sleep 20
           done
           notify() { [ -n "$NTFY_TOPIC" ] && curl -fsS -H "Title: $1" -H "Tags: $3" -d "$2" "https://ntfy.sh/$NTFY_TOPIC" >/dev/null || true; }
