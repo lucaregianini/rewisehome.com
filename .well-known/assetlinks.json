@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls", "delegate_permission/common.get_login_creds"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.rewise.app",
+      "sha256_cert_fingerprints": ["F2:70:E9:0D:ED:49:19:B3:FA:C0:F1:4C:6C:C9:DC:23:ED:DD:17:86:62:60:0F:7F:E2:D4:DA:BD:AE:C2:E4:78"]
+    }
+  }
+]
