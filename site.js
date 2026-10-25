@@ -3,6 +3,11 @@
   "use strict";
   var SIGNUP_URL = "https://api.rewisehome.com/v1/signups";
 
+  // Old links end in .html; show the short address GitHub Pages also serves (/features, not /features.html).
+  if (/\.html$/.test(location.pathname) && window.history && history.replaceState) {
+    history.replaceState(null, "", location.pathname.replace(/(index)?\.html$/, "") + location.search + location.hash);
+  }
+
   // Mobile menu
   var nav = document.querySelector(".nav");
   var menu = document.querySelector(".menu-button");
@@ -106,13 +111,14 @@
     var clean = function (text) { return text.toLowerCase().replace(/[^a-z0-9]/g, ""); };
     search.addEventListener("input", function () {
       var query = clean(search.value);
-      var hit = null;
-      chips.forEach(function (chip) {
-        var names = [chip.textContent].concat((chip.dataset.aka || "").split("|"));
-        var match = query.length > 1 && names.some(function (n) { return clean(n).indexOf(query) === 0; });
-        chip.classList.toggle("hit", match);
-        if (match && !hit) hit = chip;
+      var starts = function (n) { return query.length > 1 && clean(n).indexOf(query) === 0; };
+      // A brand's own name beats another brand's alias: "midea" is Midea, not Carrier ("Midea Carrier").
+      var named = chips.filter(function (chip) { return starts(chip.textContent); });
+      var matches = named.length ? named : chips.filter(function (chip) {
+        return (chip.dataset.aka || "").split("|").some(function (n) { return n && starts(n); });
       });
+      chips.forEach(function (chip) { chip.classList.toggle("hit", matches.indexOf(chip) !== -1); });
+      var hit = matches[0] || null;
       if (!query) { result.textContent = ""; return; }
       result.innerHTML = "";
       var b = document.createElement("b");
