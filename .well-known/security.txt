@@ -1,0 +1,5 @@
+Contact: mailto:support@rewisehome.com?subject=Security
+Expires: 2027-10-25T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://rewisehome.com/.well-known/security.txt
+Policy: https://rewisehome.com/support#security

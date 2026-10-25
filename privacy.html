@@ -37,7 +37,7 @@
 
 <div class="doc">
   <h1>Privacy Policy</h1>
-  <p class="updated">Last updated 22 October 2026</p>
+  <p class="updated">Last updated 25 October 2026</p>
   <nav class="toc" aria-label="On this page"><a href="#short">In short</a><a href="#device">Device and app</a><a href="#account">Account</a><a href="#server">Server</a><a href="#alexa">Alexa and Siri</a><a href="#signups">Website sign-ups</a><a href="#providers">Providers</a><a href="#retention">How long</a><a href="#rights">Your rights</a></nav>
 
   <h2 id="short">In short</h2>
@@ -46,20 +46,21 @@
 
   <h2 id="device">Rewise Air and the app</h2>
   <ul>
-    <li><strong>Wi-Fi details:</strong> your network name and password go from your iPhone to Rewise Air during setup and are stored only on the device, so it can join your network. Rewise never receives them.</li>
+    <li><strong>Wi-Fi details:</strong> your network name and password go from your phone to Rewise Air during setup and are stored only on the device, so it can join your network. Rewise never receives them.</li>
     <li><strong>Air conditioner settings and room readings:</strong> power, mode, temperature, fan speed, and the room’s temperature and humidity, so the app can show and change them.</li>
     <li><strong>Device details:</strong> device ID, firmware version, Wi-Fi signal strength, uptime and memory, to find problems and deliver updates.</li>
     <li><strong>Remote buttons you teach it,</strong> and the layout of your controls, so they appear in the app.</li>
-    <li><strong>Energy settings:</strong> your AC model or efficiency, your region and your electricity price, used on your iPhone to estimate costs.</li>
-    <li><strong>Bluetooth and local network:</strong> used only to find and set up your devices and to control them at home. The app doesn’t use your location.</li>
+    <li><strong>Energy settings:</strong> your AC model or efficiency, your region and your electricity price, used on your phone to estimate costs.</li>
+    <li><strong>Bluetooth and local network:</strong> used only to find and set up your devices and to control them at home. The app doesn’t use your location. On Android 11 and older, Android calls the Bluetooth permission “Location”; Rewise uses it only to find nearby devices and never reads where you are.</li>
+    <li><strong>Profile photo:</strong> the app only gets the one photo you choose for your profile, not your photo library.</li>
   </ul>
-  <p>Without an account, all of this stays between your iPhone and your devices, except what’s described under “The Rewise server” if you use remote control.</p>
+  <p>Without an account, all of this stays between your phone and your devices, except what’s described under “The Rewise server” if you use remote control.</p>
 
   <h2 id="account">Your Rewise account</h2>
   <p>An account is optional. If you create one, Rewise keeps:</p>
   <ul>
-    <li><strong>Your name and email address.</strong> With Sign in with Apple you can hide your email; Apple then gives us a private relay address.</li>
-    <li><strong>How you sign in:</strong> your Apple account identifier, your passkeys’ public keys (the private keys stay in your iCloud Keychain), and, if you set one, your password as a salted one-way hash. We can never see your password.</li>
+    <li><strong>Your name and email address.</strong> With Sign in with Apple (on iPhone) you can hide your email; Apple then gives us a private relay address.</li>
+    <li><strong>How you sign in:</strong> your Apple account identifier, your passkeys’ public keys (the private keys stay in your phone’s password manager: iCloud Keychain on iPhone, and Google Password Manager or the provider you choose on Android), and, if you set one, your password as a salted one-way hash. We can never see your password.</li>
     <li><strong>Two-factor authentication,</strong> if you turn it on: the authenticator secret, and your recovery codes as one-way hashes.</li>
     <li><strong>Your profile photo,</strong> if you add one, shown to the members of your home.</li>
     <li><strong>Your home:</strong> who’s in it and their role, pending invites, and a copy of your home’s setup (device names and rooms, control layouts, taught buttons, TVs and lights, and the keys your phones use to reach your devices on your home network) so every phone signed in to the home sees the same thing.</li>
@@ -79,7 +80,7 @@
 
   <h2 id="alexa">Amazon Alexa and Siri</h2>
   <p>If you link Rewise to Alexa, Amazon sends us the commands you give Alexa for your Rewise devices, with a token that identifies your home. We use them only to carry out the command and report the device’s state back. Your voice recordings stay with Amazon under Amazon’s privacy notice; Rewise never receives audio. You can unlink at any time in the Alexa app.</p>
-  <p>Siri and Shortcuts run on your iPhone; Apple handles Siri requests under its own privacy policy and Rewise receives only the resulting command.</p>
+  <p>Siri and Shortcuts (iPhone only) run on your iPhone; Apple handles Siri requests under its own privacy policy and Rewise receives only the resulting command.</p>
 
   <h2 id="signups">Website orders</h2>
   <p>If you order on this website, we keep your name, email address, what you ordered and, if you give it, your country, plus a shortened one-way hash of your internet address to stop abuse. They are emailed to Rewise so we can confirm your order, arrange payment and delivery, and support you afterwards. We use them for nothing else. Order requests that don’t go ahead are deleted within 12 months; records of completed sales are kept as long as tax law requires.</p>
@@ -90,9 +91,10 @@
     <tr><td>Apple</td><td>Sign in with Apple, passkeys, iCloud Mail for sign-in codes and sign-up emails, the App Store</td><td>Your email address and the emails we send you</td></tr>
     <tr><td>Cloudflare</td><td>Carries encrypted connections between your phone, your devices and the Rewise server</td><td>Internet addresses and encrypted traffic</td></tr>
     <tr><td>Tailscale</td><td>An encrypted tunnel some older Rewise devices still use to reach the server</td><td>Internet addresses and encrypted traffic</td></tr>
-    <tr><td>GitHub</td><td>Hosts this website and Rewise Air’s software updates</td><td>Internet addresses of visitors and devices</td></tr>
+    <tr><td>GitHub</td><td>Hosts this website, the Android app download and Rewise Air’s software updates</td><td>Internet addresses of visitors and devices</td></tr>
     <tr><td>Amazon</td><td>Alexa, only if you link it</td><td>Your Alexa commands for Rewise devices</td></tr>
   </table>
+  <p>On Android, passkeys go through Android’s Credential Manager (usually Google Password Manager), and Google Play Protect may check the app when you install it. Google handles these under its own privacy policy, as part of your phone; Rewise doesn’t send Google your data.</p>
   <p>Some of these providers are based in the United States. Transfers rely on the EU–US Data Privacy Framework or the European Commission’s standard contractual clauses.</p>
 
   <h2 id="retention">How long we keep it</h2>
@@ -110,8 +112,9 @@
   <h2 id="rights">Your rights</h2>
   <p>Under the GDPR you can ask to access, correct, export or delete your data, and object to or restrict its use. Email <a href="mailto:support@rewisehome.com">support@rewisehome.com</a> and we’ll answer within one month. You can delete your account in the app at any time: <a href="delete-account">here’s how</a>. You can also complain to Malta’s Information and Data Protection Commissioner (idpc.org.mt).</p>
 
-  <h2>Security</h2>
+  <h2 id="security">Security</h2>
   <p>Connections are encrypted, tokens and passwords are stored only as one-way hashes, software updates are signed and checked by each device, and you can protect your account with a passkey and two-factor authentication.</p>
+  <p>Found a security problem in Rewise Air, the app, the server or this website? Please email <a href="mailto:support@rewisehome.com?subject=Security">support@rewisehome.com</a> with “Security” in the subject. We’ll reply within 3 working days and keep you updated until it’s fixed. Please don’t test against devices or accounts that aren’t yours.</p>
 
   <h2>Children</h2>
   <p>Rewise is meant to be set up by adults. It isn’t directed at children under 16, and we don’t knowingly collect their data.</p>
@@ -130,7 +133,7 @@
     <div><h4>Rewise Air</h4><a href="/">Overview</a><a href="features">Features</a><a href="how-it-works">How it works</a><a href="compatibility">Compatibility</a><a href="get">Get Rewise Air</a><a href="get#home-plan">Rewise Home plan</a></div>
     <div><h4>Help</h4><a href="support">Support and FAQ</a><a href="how-it-works#setup">Setup guide</a><a href="android">Android app</a><a href="delete-account">Delete your account</a><a href="mailto:support@rewisehome.com">support@rewisehome.com</a></div>
     <div><h4>Legal</h4><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
-    <div class="legal"><span>© 2026 Rewise, Malta. All rights reserved.</span><span>Apple, iPhone and Siri are trademarks of Apple Inc. Amazon and Alexa are trademarks of Amazon.com, Inc. or its affiliates.</span></div>
+    <div class="legal"><span>© 2026 Rewise, Malta. All rights reserved.</span><span>Apple, iPhone and Siri are trademarks of Apple Inc. Android is a trademark of Google LLC. Amazon and Alexa are trademarks of Amazon.com, Inc. or its affiliates.</span></div>
   </div>
 </footer>
 <script src="/site.js" defer></script>
