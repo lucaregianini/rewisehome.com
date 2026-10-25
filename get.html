@@ -39,14 +39,16 @@
 <section class="hero" style="padding-bottom:110px">
   <div class="wrap">
     <p class="eyebrow">Order Rewise Air</p>
-    <h1>€27.99.</h1>
+    <h1>€27.99</h1>
     <p class="sub">Every feature included: the app, control from anywhere, automations, energy estimates, Siri and Alexa. No subscription. In stock, with free delivery in Malta.</p>
-    <form class="form-card signup reveal" id="order" novalidate>
+    <div class="order-layout">
+      <img class="air-render " src="/img/air-hero.webp" alt="Rewise Air in grey with its white logo, infrared window and USB-C port" width="888" height="700" fetchpriority="high" decoding="async">
+      <form class="form-card signup reveal" id="order" novalidate>
   <label class="field"><span>Name</span><input name="name" autocomplete="name" required maxlength="80" placeholder="Your name"></label>
   <label class="field"><span>Email</span><input name="email" type="email" autocomplete="email" inputmode="email" required maxlength="254" placeholder="name@example.com"></label>
   <fieldset class="field choice"><span>I’m interested in</span>
-    <label><input type="radio" name="plan" value="air" checked><span class="choice-art"><span class="puck-css " aria-hidden="true"><span>rewise</span></span></span> Rewise Air <small>€27.99</small></label>
-    <label><input type="radio" name="plan" value="home"><span class="choice-art three"><span class="puck-css " aria-hidden="true"><span>rewise</span></span><span class="puck-css " aria-hidden="true"><span>rewise</span></span><span class="puck-css " aria-hidden="true"><span>rewise</span></span></span> Rewise Home <small>€9.99/mo</small></label>
+    <label><input type="radio" name="plan" value="air" checked><span class="choice-art"><img class="air-render " src="/img/air-top.webp" alt="" width="924" height="918" loading="lazy" decoding="async"></span> Rewise Air <small>€27.99</small></label>
+    <label><input type="radio" name="plan" value="home"><span class="choice-art"><img class="air-render " src="/img/air-three.webp" alt="" width="1422" height="896" loading="lazy" decoding="async"></span> Rewise Home <small>€9.99/mo</small></label>
   </fieldset>
   <label class="field"><span>Country <small style="font-weight:400;color:var(--muted)">(optional)</small></span>
     <select name="country" autocomplete="country-name">
@@ -62,6 +64,7 @@
     <li>Free delivery in Malta</li><li>Pay after we confirm by email</li><li>14-day returns</li><li>Two-year guarantee</li>
   </ul>
 </form>
+    </div>
     <div class="how-order reveal">
       <div><b>1. Order here</b><span>Your name and email. Nothing to pay yet.</span></div>
       <div><b>2. We confirm by email</b><span>Order confirmation, payment details and your delivery time.</span></div>

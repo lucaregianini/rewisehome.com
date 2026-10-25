@@ -186,6 +186,11 @@ h3 { letter-spacing: -.012em; }
 .sync-remote::before { content: ""; position: absolute; top: -4px; left: 50%; width: 18px; height: 8px; margin-left: -9px; border-radius: 4px; background: #2b2b2d; }
 .sync-remote .lcd { position: absolute; top: 18px; left: 12px; right: 12px; height: 30px; border-radius: 6px; background: #c9d6c8; color: #2c3a2c;
   font: 700 15px/30px ui-monospace, Menlo, monospace; text-align: center; }
+/* The remote's display changes on the press (24° → 23°); the app follows a moment later. */
+.sync-remote .lcd span { position: absolute; inset: 0; }
+.sync-remote .lcd .old { animation: lcd-old 4s infinite; } .sync-remote .lcd .new { opacity: 0; animation: lcd-new 4s infinite; }
+@keyframes lcd-old { 0%, 4% { opacity: 1; } 5%, 97% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes lcd-new { 0%, 4% { opacity: 0; } 5%, 97% { opacity: 1; } 100% { opacity: 0; } }
 .sync-remote .btn { position: absolute; width: 16px; height: 16px; border-radius: 50%; background: #bdbdb8; }
 .sync-remote .b1 { top: 66px; left: 15px; } .sync-remote .b2 { top: 66px; right: 15px; animation: press 4s infinite; }
 .sync-remote .b3 { top: 96px; left: 15px; } .sync-remote .b4 { top: 96px; right: 15px; }
@@ -195,14 +200,7 @@ h3 { letter-spacing: -.012em; }
 .sync-waves i:nth-child(2) { animation-delay: .12s; } .sync-waves i:nth-child(3) { animation-delay: .24s; }
 .sync-waves.wifi i { background: var(--accent); animation-name: beam2; }
 .sync-waves.wifi i:nth-child(2) { animation-delay: .12s; } .sync-waves.wifi i:nth-child(3) { animation-delay: .24s; }
-/* The puck: round, slate grey, wordmark in the middle, IR window towards the upper right on a diagonal. */
-.puck-css { display: inline-grid; place-items: center; position: relative; flex: none; width: 6.5em; height: 6.5em; border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #8a96a0, #5d6871 70%); box-shadow: 0 1.1em 1.9em -.9em rgba(0,0,0,.5), inset 0 -.38em 0 rgba(0,0,0,.18); }
-.puck-css span { color: #f5f5f7; font-weight: 700; font-size: .94em; letter-spacing: -.02em; transform: translateX(-.62em); }
-/* IR window: an upright pill on the right whose bottom lines up with the bottom of the wordmark (as on the real puck). */
-.puck-css::after { content: ""; position: absolute; top: 1.68em; right: .66em; width: 1.02em; height: 1.82em; border-radius: .51em;
-  background: #1d1f22; }
-.sync-puck { font-size: 16px; display: grid; place-items: center; }
+.sync-puck { width: 116px; display: grid; place-items: center; }
 .sync-phone { width: 150px; padding: 18px 14px 16px; border-radius: 26px; background: #f7f5f1; color: #1d1d1f; text-align: left; position: relative;
   box-shadow: inset 0 0 0 5px #1d1d1f, 0 20px 40px -20px rgba(0,0,0,.4); }
 .sync-phone small { display: block; font-size: 11px; color: #6e6e73; padding-left: 4px; }
@@ -356,24 +354,34 @@ footer .brand img { height: 22px; width: auto; margin-bottom: 10px; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
   .reveal { opacity: 1; transform: none; }
-  .sync-phone .old, .sync-waves i, .sync-phone .toast { display: none; }
-  .sync-phone .new { opacity: 1; }
+  .sync-phone .old, .sync-remote .lcd .old, .sync-waves i, .sync-phone .toast { display: none; }
+  .sync-phone .new, .sync-remote .lcd .new { opacity: 1; }
 }
 
 /* Product photos */
 .shot { width: 100%; max-width: 480px; margin: 0 auto; }
-.hero .product { width: min(620px, 92%); }
+.air-render { width: 100%; height: auto; }
+.hero .product { width: min(680px, 100%); margin: 32px auto 0; }
+.home-hero .product { width: min(580px, 94%); }
+.design-product { width: min(400px, 82%); margin: 40px auto 0; }
+.window-product { width: min(460px, 86%); margin: 40px auto 0; }
+.setup-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(12px, 3vw, 24px); margin: 28px 0 40px; }
+.setup-product { min-width: 0; margin: 0; display: flex; flex-direction: column; background: var(--card); overflow: hidden; border-radius: var(--radius); }
+.setup-image { aspect-ratio: 1; display: grid; place-items: center; }
+.setup-image .air-render { width: 100%; height: 100%; object-fit: contain; }
+.setup-product figcaption { flex: 1; display: grid; place-items: center; color: var(--muted); font-size: 14px; text-align: center; margin: 0; padding: 14px 12px 18px; }
+.order-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-top: 40px; }
+.order-layout .form-card { width: 100%; margin: 0 auto; }
+@media (max-width: 860px) {
+  .order-layout { grid-template-columns: 1fr; gap: 24px; }
+  .order-layout > .air-render { max-width: 420px; margin: 0 auto; }
+}
 
-/* Puck icons in the sign-up choices */
+/* Approved product renders in the sign-up choices */
 .choice input { position: absolute; opacity: 0; pointer-events: none; width: 1px; height: 1px; min-height: 0; padding: 0; }
 .choice label { position: relative; }
-.choice-art { display: flex; align-items: center; width: 40px; flex: none; font-size: 5.2px; }
-.choice-art .puck-css { box-shadow: 0 .6em 1em -.5em rgba(0,0,0,.45), inset 0 -.38em 0 rgba(0,0,0,.18); }
-.choice-art .puck-css span { font-size: 1.05em; }
-.choice-art.three { font-size: 3.6px; }
-.choice-art.three .puck-css + .puck-css { margin-left: -4.2em; }
-.choice-art.three .puck-css:nth-child(1) { opacity: .7; }
-.choice-art.three .puck-css:nth-child(2) { opacity: .85; }
+.choice-art { display: flex; align-items: center; width: 40px; flex: none; }
+.choice-art .air-render { width: 40px; height: 38px; object-fit: contain; }
 .choice label:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 /* What works today */
