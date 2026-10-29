@@ -108,6 +108,26 @@
     if (home) home.checked = true;
   }
 
+  // Setup page: the iPhone card offers the App Store only once Apple lists the app (its lookup API allows any
+  // origin); until then, or if Apple can't be reached, it offers an email when the app is ready. Android phones
+  // see their own card first.
+  var appStore = document.querySelector("[data-app-store-live]");
+  if (appStore) {
+    if (/Android/i.test(navigator.userAgent)) {
+      var choice = appStore.closest(".plans"), android = choice.querySelector("[data-platform=android]");
+      choice.insertBefore(android, choice.firstChild);
+    }
+    fetch("https://itunes.apple.com/lookup?id=6816710912&country=mt").then(function (response) {
+      return response.json();
+    }).then(function (body) {
+      var app = body && body.results && body.results[0];
+      if (!app || !app.trackViewUrl) return;
+      appStore.querySelector("[data-app-store-link]").href = app.trackViewUrl;
+      appStore.hidden = false;
+      document.querySelector("[data-app-store-pending]").hidden = true;
+    }).catch(function () {});
+  }
+
   // Compatibility checker
   var search = document.getElementById("brand-search");
   if (search) {
