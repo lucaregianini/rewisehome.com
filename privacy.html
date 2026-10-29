@@ -41,7 +41,7 @@
   <nav class="toc" aria-label="On this page"><a href="#short">In short</a><a href="#device">Device and app</a><a href="#account">Account</a><a href="#server">Server</a><a href="#alexa">Alexa and Siri</a><a href="#signups">Website sign-ups</a><a href="#providers">Providers</a><a href="#retention">How long</a><a href="#rights">Your rights</a></nav>
 
   <h2 id="short">In short</h2>
-  <p>Rewise makes Rewise Air, the Rewise app, the Rewise server that lets you control your devices away from home, and this website. Rewise keeps only what it needs to run them. It never sells your data or shares it for advertising, the app has no ads or third-party tracking, and this website uses no cookies or analytics.</p>
+  <p>Rewise makes Rewise Air, the Rewise app, the Rewise server that lets you control your devices away from home, and this website. Rewise keeps only what it needs to run them. It never sells your data or shares it for advertising, the app has no ads or third-party tracking, and this website uses no cookies or analytics (the checkout page loads Stripe, which sets its own cookies to prevent payment fraud).</p>
   <p>Rewise is run by Luca Veiga Regianini in Malta, the data controller. Contact: <a href="mailto:support@rewisehome.com">support@rewisehome.com</a>.</p>
 
   <h2 id="device">Rewise Air and the app</h2>
@@ -83,7 +83,8 @@
   <p>Siri and Shortcuts (iPhone only) run on your iPhone; Apple handles Siri requests under its own privacy policy and Rewise receives only the resulting command.</p>
 
   <h2 id="signups">Website orders</h2>
-  <p>If you order on this website, we keep your name, email address, what you ordered and, if you give it, your country, plus a shortened one-way hash of your internet address to stop abuse. They are emailed to Rewise so we can confirm your order, arrange payment and delivery, and support you afterwards. We use them for nothing else. Order requests that don’t go ahead are deleted within 12 months; records of completed sales are kept as long as tax law requires.</p>
+  <p>If you send an enquiry on this website, we keep your name, email address, what you asked about and, if you give it, your country, plus a shortened one-way hash of your internet address to stop abuse. They are emailed to Rewise so we can reply and support you. We use them for nothing else. Enquiries that don’t go ahead are deleted within 12 months; records of completed sales are kept as long as tax law requires.</p>
+  <p>If you buy on this website, the payment is made in a secure form from Stripe, our payment provider, inside the checkout page. Stripe receives your card details; Rewise never sees or stores your card number. From the checkout, Rewise receives your name, email address, phone number, delivery address in Malta, what you bought and whether the payment succeeded, and keeps a shortened one-way hash of your internet address to stop abuse. We use them to deliver your order, email you about it, and support you afterwards, and Stripe uses payment data to process the payment and prevent fraud under its own privacy policy. Emails about your order are kept for 24 months after delivery (longer only while a related support case or dispute is open); records of completed sales are kept as long as tax law requires.</p>
 
   <h2 id="providers">Who helps us</h2>
   <table>
@@ -93,6 +94,7 @@
     <tr><td>Tailscale</td><td>An encrypted tunnel some older Rewise devices still use to reach the server</td><td>Internet addresses and encrypted traffic</td></tr>
     <tr><td>GitHub</td><td>Hosts this website, the Android app download and Rewise Air’s software updates</td><td>Internet addresses of visitors and devices</td></tr>
     <tr><td>Amazon</td><td>Alexa, only if you link it</td><td>Your Alexa commands for Rewise devices</td></tr>
+    <tr><td>Stripe</td><td>Card payments on the checkout page</td><td>Your payment details, name, email, phone, delivery address and internet address</td></tr>
   </table>
   <p>On Android, passkeys go through Android’s Credential Manager (usually Google Password Manager), and Google Play Protect may check the app when you install it. Google handles these under its own privacy policy, as part of your phone; Rewise doesn’t send Google your data.</p>
   <p>Some of these providers are based in the United States. Transfers rely on the EU–US Data Privacy Framework or the European Commission’s standard contractual clauses.</p>
@@ -107,7 +109,7 @@
   </ul>
 
   <h2>Legal basis</h2>
-  <p>We process this information to provide the service you asked for (performance of a contract), and crash reports, technical logs and abuse protection to keep it secure and working (legitimate interests). Website orders are handled to take and deliver your order (performance of a contract) and to keep the records tax law requires (legal obligation).</p>
+  <p>We process this information to provide the service you asked for (performance of a contract), and crash reports, technical logs and abuse protection to keep it secure and working (legitimate interests). Website purchases and enquiries are handled to take and deliver your order (performance of a contract) and to keep the records tax law requires (legal obligation).</p>
 
   <h2 id="rights">Your rights</h2>
   <p>Under the GDPR you can ask to access, correct, export or delete your data, and object to or restrict its use. Email <a href="mailto:support@rewisehome.com">support@rewisehome.com</a> and we’ll answer within one month. You can delete your account in the app at any time: <a href="delete-account">here’s how</a>. You can also complain to Malta’s Information and Data Protection Commissioner (idpc.org.mt).</p>
@@ -130,7 +132,7 @@
       <div class="brand"><picture><source srcset="/img/rewise-wordmark-dark.png" media="(prefers-color-scheme: dark)"><img src="/img/rewise-wordmark.png" alt="rewise" width="93" height="30"></picture></div>
       <p>Makes the air conditioner you already own smart. Designed in Malta.</p>
     </div>
-    <div><h4>Rewise Air</h4><a href="/">Overview</a><a href="features">Features</a><a href="how-it-works">How it works</a><a href="compatibility">Compatibility</a><a href="get">Get Rewise Air</a><a href="get#home-plan">Rewise Home plan</a></div>
+    <div><h4>Rewise Air</h4><a href="/">Overview</a><a href="features">Features</a><a href="how-it-works">How it works</a><a href="compatibility">Compatibility</a><a href="get">Get Rewise Air</a><a href="enquire?plan=home#enquiry">Rewise Home plan</a></div>
     <div><h4>Help</h4><a href="support">Support and FAQ</a><a href="how-it-works#setup">Setup guide</a><a href="android">Android app</a><a href="https://github.com/lucaregianini/rewise-home-assistant">Home Assistant</a><a href="delete-account">Delete your account</a><a href="mailto:support@rewisehome.com">support@rewisehome.com</a></div>
     <div><h4>Legal</h4><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
     <div class="legal"><span>© 2026 Rewise, Malta. All rights reserved.</span><span>Apple, iPhone and Siri are trademarks of Apple Inc. Android is a trademark of Google LLC. Amazon and Alexa are trademarks of Amazon.com, Inc. or its affiliates. Home Assistant is a trademark of the Open Home Foundation.</span></div>

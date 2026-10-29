@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Get Rewise Air</title>
-<meta name="description" content="Order Rewise Air for €27.99, every feature included, no subscription. Free delivery in Malta; we confirm by email with payment details.">
+<title>Order Rewise Air</title>
+<meta name="description" content="Buy Rewise Air for €27.99: every feature included, no subscription, free delivery.">
 <meta name="google-site-verification" content="VD69OJuIrmWbxoXzXk4AlATU6wckUUIEyK7a1ZJRNos">
 <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Rewise">
-<meta property="og:title" content="Get Rewise Air">
-<meta property="og:description" content="Order Rewise Air for €27.99, every feature included, no subscription. Free delivery in Malta; we confirm by email with payment details.">
+<meta property="og:title" content="Order Rewise Air">
+<meta property="og:description" content="Buy Rewise Air for €27.99: every feature included, no subscription, free delivery.">
 <meta property="og:image" content="https://rewisehome.com/img/og-image.jpg">
 <meta property="og:url" content="https://rewisehome.com/get">
 <meta name="twitter:card" content="summary_large_image">
@@ -24,6 +24,87 @@
 <link rel="stylesheet" href="/styles.css">
 <script>document.documentElement.classList.remove("no-js")</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Product", "name": "Rewise Air", "description": "Makes any air conditioner with an infrared remote smart: control it from anywhere, automate it, see what it costs, and ask Siri or Alexa. No subscription.", "image": "https://rewisehome.com/img/og-image.jpg", "brand": {"@type": "Brand", "name": "Rewise"}, "offers": {"@type": "Offer", "price": "27.99", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "url": "https://rewisehome.com/get", "areaServed": "MT", "hasMerchantReturnPolicy": {"@type": "MerchantReturnPolicy", "applicableCountry": "MT", "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow", "merchantReturnDays": 14, "merchantReturnLink": "https://rewisehome.com/terms"}, "shippingDetails": {"@type": "OfferShippingDetails", "shippingRate": {"@type": "MonetaryAmount", "value": "0", "currency": "EUR"}, "shippingDestination": {"@type": "DefinedRegion", "addressCountry": "MT"}, "deliveryTime": {"@type": "ShippingDeliveryTime", "handlingTime": {"@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "DAY"}, "transitTime": {"@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "DAY"}}}}}</script>
+<style>
+[hidden] { display: none !important; }
+.preview-banner { margin: 0; padding: 8px 16px; text-align: center; font-size: 13px; font-weight: 600; background: #ffd60a; color: #1d1d1f; }
+.order-hero { padding: 40px 24px 56px; }
+.order-hero h1 { font-size: clamp(34px, 5vw, 52px); letter-spacing: -.03em; margin: 0 0 28px; }
+.order-box { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 400px); gap: 40px; align-items: center; max-width: 900px; margin: 0 auto; }
+.order-box > .air-render { max-width: 440px; margin: 0 auto; }
+.buy-card { text-align: left; margin: 0; width: 100%; }
+.buy-name { margin: 0 0 4px; font-size: 17px; font-weight: 600; }
+.buy-price { font-size: clamp(38px, 5vw, 48px); font-weight: 700; letter-spacing: -.03em; line-height: 1; }
+.buy-per { margin: 8px 0 0; color: var(--muted); font-size: 15px; }
+.buy-list { list-style: none; padding: 0; margin: 18px 0; font-size: 15px; }
+.buy-list li { padding: 8px 0 8px 26px; border-top: .5px solid var(--line); position: relative; }
+.buy-list li::before { content: "✓"; position: absolute; left: 2px; color: var(--accent); font-weight: 700; }
+.buy-state { margin: 12px 0 0; font-size: 15px; font-weight: 600; }
+/* The shared .pill rule forces opacity 1 (!important), so a disabled Buy button needs its own look. */
+.buy-card .pill[aria-disabled="true"] { background: var(--surface); color: var(--muted) !important; box-shadow: inset 0 0 0 1px var(--line); pointer-events: none; cursor: default; }
+.order-plans { padding: 56px 24px 72px; }
+.plans.single { grid-template-columns: minmax(0, 380px); justify-content: center; }
+.enquiry-section { padding: 48px 24px 80px; }
+.enquiry-section h1 { font-size: clamp(34px, 5vw, 48px); letter-spacing: -.03em; margin: 0 0 10px; }
+.enquiry-section .form-card { margin-top: 28px; }
+.checkout-section { padding: 24px 24px 64px; text-align: left; }
+.checkout-layout { display: grid; grid-template-columns: minmax(0, 320px) minmax(0, 1fr); gap: 36px; align-items: start; max-width: 1040px; }
+.checkout-summary { position: sticky; top: 96px; }
+.summary-head { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.summary-head .air-render { width: 88px; flex: none; }
+.summary-head .eyebrow { font-size: 14px; margin: 0 0 2px; }
+.checkout-summary h1 { font-size: 28px; line-height: 1.1; margin: 0; letter-spacing: -.02em; }
+.summary-lines { margin: 0 0 10px; font-size: 15px; }
+.summary-lines div { display: flex; justify-content: space-between; gap: 16px; padding: 8px 0; border-top: .5px solid var(--line); }
+.summary-lines dt { color: var(--muted); }
+.summary-lines dd { margin: 0; font-weight: 600; font-variant-numeric: tabular-nums; }
+.summary-lines .total dt, .summary-lines .total dd { color: var(--ink); font-size: 17px; font-weight: 700; }
+.summary-note { font-size: 13px; color: var(--muted); margin: 0; }
+.checkout-help { margin: 12px 4px 0; font-size: 14px; color: var(--muted); }
+.checkout-pane { min-width: 0; }
+.checkout-frame { background: #fff; color-scheme: light; border-radius: 20px; padding: 12px; min-height: 120px;
+  box-shadow: inset 0 0 0 .5px var(--line), 0 30px 60px -40px rgba(0,0,0,.25); }
+.checkout-frame:empty { display: none; }
+.test-banner { margin: 0 0 10px; padding: 8px 14px; border-radius: 12px; background: rgba(255,214,10,.22); font-size: 13px; }
+.test-banner code { font-size: 14px; font-weight: 600; }
+.checkout-status { display: flex; align-items: center; gap: 12px; padding: 22px 4px; color: var(--muted); }
+.checkout-error { margin: 0 0 16px; padding: 16px 18px; border-radius: 16px; background: rgba(196,55,47,.10); color: var(--ink); }
+.checkout-error:focus { outline: 2px solid var(--danger); outline-offset: 2px; }
+.spinner { width: 22px; height: 22px; border-radius: 50%; border: 2.5px solid var(--accent-soft); border-top-color: var(--accent);
+  animation: spin .9s linear infinite; flex: none; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.order-result { max-width: 560px; margin: 0 auto; padding: 72px 24px 104px; text-align: center; }
+.order-result h1 { font-size: clamp(30px, 4.4vw, 42px); letter-spacing: -.025em; margin: 18px 0 10px; }
+.order-result h1:focus { outline: none; }
+.order-result p { color: var(--muted); font-size: 18px; margin: 0 0 12px; }
+.order-result .reference { display: inline-block; margin: 6px 0 18px; padding: 8px 16px; border-radius: 999px; background: var(--surface);
+  font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: .02em; color: var(--ink); }
+.order-result .badge-icon { width: 64px; height: 64px; margin: 0 auto; border-radius: 50%; display: grid; place-items: center;
+  background: var(--accent); color: #fff; }
+.order-result .badge-icon.wait { background: var(--accent-soft); color: var(--accent); }
+.order-result .badge-icon.stop { background: rgba(196,55,47,.12); color: var(--danger); }
+.order-result .actions { justify-content: center; }
+.order-result .checked { font-size: 15px; margin-top: 14px; }
+@media (max-width: 860px) {
+  .order-hero { padding: 24px 16px 40px; }
+  .order-hero h1 { margin-bottom: 16px; }
+  .order-box { grid-template-columns: 1fr; gap: 16px; }
+  .order-box > .air-render { max-width: 240px; }
+  .order-plans { padding: 40px 16px 56px; }
+  .enquiry-section { padding: 32px 16px 56px; }
+  .checkout-section { padding: 16px 16px 56px; }
+  .checkout-layout { grid-template-columns: 1fr; gap: 14px; }
+  .checkout-summary { position: static; }
+  .summary-head .air-render { width: 56px; }
+  .summary-head .eyebrow { display: none; }
+  .checkout-summary h1 { font-size: 22px; }
+  .summary-lines { font-size: 14px; }
+  .summary-lines div { padding: 6px 0; }
+  .checkout-frame { padding: 6px; border-radius: 16px; }
+}
+@media (prefers-reduced-motion: reduce) { .spinner { animation-duration: 3s; } }
+@media (prefers-color-scheme: dark) { .order-result .badge-icon { color: #0d0f10; } .preview-banner { color: #1d1d1f; } }
+</style>
+<script src="/checkout.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -36,77 +117,37 @@
 </nav>
 <main id="main">
 
-<section class="hero" style="padding-bottom:110px">
+<section class="order-hero">
   <div class="wrap">
-    <p class="eyebrow">Order Rewise Air</p>
-    <h1>€27.99</h1>
-    <p class="sub">Every feature included: the app, control from anywhere, automations, energy estimates, Siri and Alexa. No subscription. In stock, with free delivery in Malta.</p>
-    <div class="order-layout">
+    <h1>Order Rewise Air</h1>
+    <div class="order-box">
       <img class="air-render " src="/img/air-hero.webp" alt="Rewise Air in grey with its white logo, infrared window and USB-C port" width="888" height="700" fetchpriority="high" decoding="async">
-      <form class="form-card signup reveal" id="order" novalidate>
-  <label class="field"><span>Name</span><input name="name" autocomplete="name" required maxlength="80" placeholder="Your name"></label>
-  <label class="field"><span>Email</span><input name="email" type="email" autocomplete="email" inputmode="email" required maxlength="254" placeholder="name@example.com"></label>
-  <fieldset class="field choice"><span>I’m interested in</span>
-    <label><input type="radio" name="plan" value="air" checked><span class="choice-art"><img class="air-render " src="/img/air-top.webp" alt="" width="924" height="918" loading="lazy" decoding="async"></span> Rewise Air <small>€27.99</small></label>
-    <label><input type="radio" name="plan" value="home"><span class="choice-art"><img class="air-render " src="/img/air-three.webp" alt="" width="1422" height="896" loading="lazy" decoding="async"></span> Rewise Home <small>€9.99/mo</small></label>
-  </fieldset>
-  <label class="field"><span>Country <small style="font-weight:400;color:var(--muted)">(optional)</small></span>
-    <select name="country" autocomplete="country-name">
-      <option value="">Choose…</option><option>Malta</option><option>Italy</option><option>United Kingdom</option><option>Ireland</option>
-      <option>Germany</option><option>France</option><option>Spain</option><option>Portugal</option><option>Netherlands</option>
-      <option>Belgium</option><option>Austria</option><option>Greece</option><option>Cyprus</option><option>Other EU country</option><option>Somewhere else</option>
-    </select></label>
-  <label class="hp" aria-hidden="true">Website <input name="website" tabindex="-1" autocomplete="off"></label>
-  <p class="form-error" role="alert"></p>
-  <button class="pill" type="submit">Order Rewise Air</button>
-  <p class="form-note">Nothing to pay here. We’ll email you to confirm your order, with payment details and delivery. Your details are used for your order only. <a href="privacy#signups">Privacy</a></p>
-  <ul class="order-facts">
-    <li>Free delivery in Malta</li><li>Pay after we confirm by email</li><li>14-day returns</li><li>Two-year guarantee</li>
-  </ul>
-</form>
-    </div>
-    <div class="how-order reveal">
-      <div><b>1. Order here</b><span>Your name and email. Nothing to pay yet.</span></div>
-      <div><b>2. We confirm by email</b><span>Order confirmation, payment details and your delivery time.</span></div>
-      <div><b>3. Delivered to you</b><span>Free, the same day or within 2 days. Plug it in and set it up in about two minutes.</span></div>
+      <div class="form-card buy-card" id="order" data-checkout-api="https://api.rewisehome.com" data-checkout-mode="live">
+  <p class="buy-name">Rewise Air</p>
+  <div class="buy-price">€27.99</div>
+  <p class="buy-per">One payment. No subscription.</p>
+  <ul class="buy-list"><li>Every feature of the Rewise app</li><li>Free delivery</li><li>14-day returns, two-year guarantee</li></ul>
+  <a class="pill" href="checkout" data-buy>Buy Now</a>
+  <p class="buy-state" data-buy-state role="status" aria-live="polite" hidden></p>
+  <p class="form-note" data-buy-note>Secure card payment with Stripe. We deliver to addresses in Malta. <a href="terms">Terms</a> · <a href="support">Help</a></p>
+  <p class="form-note" data-buy-off hidden>Online checkout isn’t open right now. <a href="enquire#enquiry">Send us an enquiry</a> and we’ll email you.</p>
+  <p class="form-note" data-buy-soldout hidden>Send us an <a href="enquire#enquiry">enquiry</a> and we’ll tell you when there are more.</p>
+</div>
     </div>
   </div>
 </section>
-<section class="surface">
+<section class="surface order-plans">
   <div class="wrap">
-    <div class="reveal"><p class="eyebrow">Plans</p><h2>One room or the whole home.</h2>
-      <p class="sub">Buy a Rewise Air for one room. Want every room? Borrow more with Rewise Home.</p></div>
-    <div class="plans reveal">
-      <div class="plan">
-        <p class="plan-name">Rewise Air</p>
-        <div class="plan-price">€27.99</div>
-        <p class="plan-per">one payment</p>
-        <ul><li>One Rewise Air for one room</li><li>Every feature, no subscription</li><li>Yours to keep, two-year guarantee</li></ul>
-        <a class="pill" href="get#order">Order Now</a>
-      </div>
+    <div class="reveal"><p class="eyebrow">Plans</p><h2>More rooms? Rewise Home.</h2>
+      <p class="sub">Own a Rewise Air? Borrow more for the other rooms.</p></div>
+    <div class="plans single reveal">
       <div class="plan featured" id="home-plan">
         <p class="plan-name">Rewise Home</p>
         <div class="plan-price">€9.99<small>/month</small></div>
         <p class="plan-per">6-month plan</p>
         <ul><li>Up to 3 more Rewise Air units, on loan</li><li>Every room in the home, one app</li><li>For anyone who owns a Rewise Air</li></ul>
-        <a class="pill gray" href="get#order" data-plan="home">Ask About Rewise Home</a>
+        <a class="pill gray" href="enquire?plan=home#enquiry" data-plan="home">Ask About Rewise Home</a>
       </div>
-    </div>
-  </div>
-</section>
-<section>
-  <div class="wrap">
-    <div class="price-card reveal" style="margin-top:0">
-      <p class="eyebrow" style="margin-bottom:16px">What’s in the box</p>
-      <div class="amount">€27.99</div>
-      <p class="per">one payment, no subscription</p>
-      <ul>
-        <li>Rewise Air</li>
-        <li>USB-C cable (plugs into any USB charger)</li>
-        <li>The Rewise app for iPhone and Android, free</li>
-        <li>Two-year guarantee and 14-day returns</li>
-      </ul>
-      <p class="hero-note" style="margin:0">Designed in Malta. Every order is answered by a person, usually the same day.</p>
     </div>
   </div>
 </section>
@@ -118,7 +159,7 @@
       <div class="brand"><picture><source srcset="/img/rewise-wordmark-dark.png" media="(prefers-color-scheme: dark)"><img src="/img/rewise-wordmark.png" alt="rewise" width="93" height="30"></picture></div>
       <p>Makes the air conditioner you already own smart. Designed in Malta.</p>
     </div>
-    <div><h4>Rewise Air</h4><a href="/">Overview</a><a href="features">Features</a><a href="how-it-works">How it works</a><a href="compatibility">Compatibility</a><a href="get">Get Rewise Air</a><a href="get#home-plan">Rewise Home plan</a></div>
+    <div><h4>Rewise Air</h4><a href="/">Overview</a><a href="features">Features</a><a href="how-it-works">How it works</a><a href="compatibility">Compatibility</a><a href="get">Get Rewise Air</a><a href="enquire?plan=home#enquiry">Rewise Home plan</a></div>
     <div><h4>Help</h4><a href="support">Support and FAQ</a><a href="how-it-works#setup">Setup guide</a><a href="android">Android app</a><a href="https://github.com/lucaregianini/rewise-home-assistant">Home Assistant</a><a href="delete-account">Delete your account</a><a href="mailto:support@rewisehome.com">support@rewisehome.com</a></div>
     <div><h4>Legal</h4><a href="privacy">Privacy Policy</a><a href="terms">Terms of Use</a></div>
     <div class="legal"><span>© 2026 Rewise, Malta. All rights reserved.</span><span>Apple, iPhone and Siri are trademarks of Apple Inc. Android is a trademark of Google LLC. Amazon and Alexa are trademarks of Amazon.com, Inc. or its affiliates. Home Assistant is a trademark of the Open Home Foundation.</span></div>

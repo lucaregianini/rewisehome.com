@@ -78,10 +78,15 @@
         });
       }).then(function () {
         var first = name.value.trim().split(" ")[0];
+        // An enquiry form says what it is (data-done-*); the order form keeps its wording.
+        var title = form.getAttribute("data-done-title") || "Order received.";
+        var text = form.getAttribute("data-done-text") ||
+          "We’ll email " + email.value.trim() + " with your order confirmation, payment details and delivery time.";
         form.innerHTML = '<div class="form-done" role="status"><div class="check" aria-hidden="true">' +
           '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>' +
-          "<h3>Order received.</h3><p></p></div>";
-        form.querySelector(".form-done p").textContent = "Thanks, " + first + ". We’ll email " + email.value.trim() + " with your order confirmation, payment details and delivery time.";
+          "<h3></h3><p></p></div>";
+        form.querySelector(".form-done h3").textContent = title;
+        form.querySelector(".form-done p").textContent = "Thanks, " + first + ". " + text;
       }).catch(function (problem) {
         button.disabled = false;
         button.textContent = label;
