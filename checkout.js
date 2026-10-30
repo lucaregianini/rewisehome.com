@@ -114,8 +114,24 @@
 
     // The order this page is paying for, once known; the watcher and the recovery link use it.
     var checkoutToken = "";
-    var toOrder = function () { location.replace("order#t=" + encodeURIComponent(checkoutToken)); };
+    // Set once this page is done with its checkout (going to its confirmation, or already told the server it left).
+    var leaving = false;
+    var toOrder = function () { leaving = true; location.replace("order#t=" + encodeURIComponent(checkoutToken)); };
     var help = document.querySelector("[data-checkout-help]");
+
+    // Each checkout holds one of very few units until Stripe expires its session, half an hour on. Leaving the page
+    // (a real navigation, not a hidden tab or a trip to a bank app) asks the server to expire it now; Stripe refuses
+    // once it's paid or being paid, so this never undoes a payment. Coming back from the browser's page cache, that
+    // form is over: load afresh, and the server starts a new checkout.
+    if (window.addEventListener) {
+      window.addEventListener("pagehide", function () {
+        if (!checkoutToken || leaving) return;
+        leaving = true;
+        var nav = window.navigator;
+        if (nav && nav.sendBeacon) nav.sendBeacon(API + "/v1/checkout/abandon", JSON.stringify({ token: checkoutToken }));
+      });
+      window.addEventListener("pageshow", function (event) { if (event.persisted && leaving) location.reload(); });
+    }
 
     // Stripe sends the buyer to /order?session_id=… after paying. If that doesn't happen (or the form ends on
     // Stripe's "You're all done here"), this notices from our server, which asks Stripe itself: paid, processing,
@@ -164,6 +180,7 @@
           if (body.state === "paid" || body.state === "processing" || body.state === "received") {
             // Already bought: show that order's own confirmation. The token rides in the #fragment, which
             // isn't sent to the web server, so the page reloads as the same order.
+            leaving = true;
             location.href = "order#t=" + encodeURIComponent(token);
             return new Promise(function () {});
           }
