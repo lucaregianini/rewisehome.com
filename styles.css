@@ -297,6 +297,10 @@ footer a { color: var(--muted); display: block; padding: 4px 0; }
 footer a:hover { color: var(--ink); }
 footer .legal { grid-column: 1 / -1; border-top: .5px solid var(--line); padding-top: 18px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
 footer .brand img { height: 22px; width: auto; margin-bottom: 10px; }
+footer a.social-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; padding: 7px 13px 7px 10px; border-radius: 999px;
+  background: var(--accent-soft); color: var(--accent); font-size: 13px; font-weight: 600; transition: background .2s, color .2s; }
+footer a.social-link:hover { background: var(--accent); color: var(--paper); text-decoration: none; }
+footer a.social-link svg { flex: none; }
 
 /* Reveal on scroll */
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
