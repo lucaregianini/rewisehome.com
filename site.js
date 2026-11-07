@@ -1,4 +1,5 @@
-// rewisehome.com: mobile menu, scroll reveals, the sign-up form and the compatibility checker.
+// rewisehome.com: mobile menu, scroll reveals, the enquiry form and the compatibility checker.
+// Rewise Air is on sale at rewisehome.com/get (€27.99, Stripe checkout); the enquiry form is for questions and Rewise Home.
 (function () {
   "use strict";
   var SIGNUP_URL = "https://api.rewisehome.com/v1/signups";
@@ -45,7 +46,7 @@
     reveals.forEach(function (el) { observer.observe(el); });
   }
 
-  // Sign-up form: name + email, emailed to Rewise by the Rewise server.
+  // Enquiry form: name + email, emailed to Rewise by the Rewise server.
   document.querySelectorAll("form.signup").forEach(function (form) {
     var error = form.querySelector(".form-error");
     var button = form.querySelector("button[type=submit]");
@@ -96,7 +97,7 @@
     });
   });
 
-  // "Register Interest" on the Rewise Home card picks that plan in the form.
+  // "Ask About Rewise Home" on the Rewise Home card picks that plan in the enquiry form.
   document.querySelectorAll("[data-plan]").forEach(function (link) {
     link.addEventListener("click", function () {
       var radio = document.querySelector('form.signup input[name=plan][value="' + link.dataset.plan + '"]');

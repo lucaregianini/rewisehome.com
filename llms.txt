@@ -1,0 +1,36 @@
+# Rewise
+
+> Rewise is a Maltese smart home company. Its product, Rewise Air, is a small puck that makes any air conditioner with an infrared remote smart. Rewise Air is on sale now at https://rewisehome.com/get for €27.99, one payment with no subscription and free delivery in Malta.
+
+## Rewise Air
+
+- What it does: control your AC from your phone from anywhere, with schedules and automations, Siri and Alexa.
+- Compatibility: every air conditioner with an infrared remote. It has built-in support for 40+ brands, and it can learn other remotes.
+- Your remote keeps working: Rewise Air picks up presses from the original remote, so the app stays in sync.
+- Sensor: a built-in sensor reads the room's temperature and humidity.
+- Setup: no new AC and no electrician needed. It needs USB-C power and Wi-Fi.
+- Apps: the Rewise app for Android is available now, and the iPhone app is coming to the App Store. Home Assistant is also supported.
+- Price: €27.99, one payment, no subscription.
+- Buying: order online at https://rewisehome.com/get, with secure card payment through Stripe.
+- Delivery: free delivery to addresses in Malta.
+- Returns: 14-day returns for a full refund and a two-year guarantee.
+- Made by: designed in Malta by Rewise.
+
+## Rewise Home
+
+Rewise Home is an optional plan for Rewise Air owners, at €9.99 a month on a 6-month plan. It adds up to 3 more Rewise Air units on loan. Ask about it at https://rewisehome.com/enquire.
+
+## Pages
+
+- [Order Rewise Air](https://rewisehome.com/get)
+- [Features](https://rewisehome.com/features)
+- [How it works and setup](https://rewisehome.com/how-it-works)
+- [Compatibility checker](https://rewisehome.com/compatibility)
+- [Support and FAQ](https://rewisehome.com/support)
+- [Android app](https://rewisehome.com/android)
+- [Terms](https://rewisehome.com/terms) and [Privacy](https://rewisehome.com/privacy)
+
+## Contact
+
+- Email: support@rewisehome.com
+- Instagram: https://www.instagram.com/rewisehome/
