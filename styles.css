@@ -404,3 +404,32 @@ footer a.social-link svg { flex: none; }
 .how-order b { display: block; font-size: 15px; margin-bottom: 3px; }
 .how-order span { color: var(--muted); font-size: 14px; }
 @media (max-width: 760px) { .how-order { grid-template-columns: 1fr; } }
+
+/* Apps page: one card per phone, then the Android install steps */
+.app-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; max-width: 820px; margin: 40px auto 0; text-align: left; }
+.app-card { display: flex; flex-direction: column; background: var(--card); border-radius: var(--radius); padding: 28px;
+  box-shadow: inset 0 0 0 .5px var(--line), 0 30px 60px -44px rgba(0,0,0,.3); scroll-margin-top: 96px; }
+.app-platform { margin: 0 0 6px; font-size: 15px; font-weight: 600; color: var(--muted); }
+.app-card h2 { margin: 0; font-size: clamp(24px, 2.8vw, 30px); text-align: left; }
+.app-card > p:not(.app-platform) { flex: 1; margin: 10px 0 0; color: var(--muted); font-size: 16px; }
+.app-get { display: flex; flex-direction: column; align-items: flex-start; min-height: 46px; margin-top: 22px; }
+.app-get .hero-note { margin: 12px 0 0; }
+.app-get .soon { font-size: 14px; padding: 7px 14px; }
+/* Apple's badge as supplied: 46 px tall (minimum 40), and the card's padding keeps its clear space (a quarter of its height). */
+.app-store-badge { display: inline-block; line-height: 0; border-radius: 9px; }
+.app-store-badge:hover { text-decoration: none; }
+.app-store-badge img { width: auto; height: 46px; }
+.app-phones { display: flex; justify-content: center; align-items: flex-end; gap: clamp(12px, 3vw, 28px); max-width: 760px; margin: 56px auto 0; }
+.app-phones .phone { flex: 0 1 210px; margin: 0; }
+.app-phones .phone:nth-child(2) { flex-basis: 240px; }
+.app-notes { max-width: 740px; padding: 48px 0 0; }
+.app-notes h2 { margin-top: 0; }
+.preview-banner { margin: 0; padding: 8px 16px; text-align: center; font-size: 13px; font-weight: 600; background: #ffd60a; color: #1d1d1f; }
+@media (max-width: 760px) {
+  .app-cards { grid-template-columns: 1fr; margin-top: 32px; }
+  .app-card { padding: 24px 22px; }
+  .app-phones { gap: 12px; margin-top: 44px; }
+  .app-phones .phone:nth-child(1) { display: none; }
+  .app-phones .phone, .app-phones .phone:nth-child(2) { flex: 0 1 46%; }
+  .app-notes { padding-top: 40px; }
+}
