@@ -433,3 +433,13 @@ footer a.social-link svg { flex: none; }
   .app-phones .phone, .app-phones .phone:nth-child(2) { flex: 0 1 46%; }
   .app-notes { padding-top: 40px; }
 }
+
+/* Split hero: copy left, product right on wide screens, so the whole hero fits the first screen */
+@media (min-width: 900px) {
+  .hero-split { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; text-align: left; } /* same grid as .split */
+  .hero-split .sub { margin-left: 0; }
+  .hero-split .actions { justify-content: flex-start; }
+  .hero .hero-split .product, .home-hero .hero-split .product { width: 100%; margin: 0; }
+  .hero:has(.hero-split) { padding-top: 120px; padding-bottom: 72px; min-height: min(100vh, 760px); display: flex; align-items: center; }
+  .hero:has(.hero-split) > .wrap { width: 100%; }
+}
