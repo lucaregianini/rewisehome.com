@@ -8,7 +8,9 @@
 - Compatibility: every air conditioner with an infrared remote. It has built-in support for 40+ brands, and it can learn other remotes.
 - Your remote keeps working: Rewise Air picks up presses from the original remote, so the app stays in sync.
 - Sensor: a built-in sensor reads the room's temperature and humidity.
-- Setup: no new AC and no electrician needed. It needs USB-C power and Wi-Fi.
+- Setup: no new AC, no wiring and no electrician. Add it from the Rewise app; it needs USB-C power and Wi-Fi.
+- Control: the app sends the exact mode, temperature and fan speed, not just a power toggle. It also works with Siri and Shortcuts, Alexa and Home Assistant.
+- Cost: the app shows energy and cost estimates, based on the AC's rated efficiency.
 - Apps: the Rewise app for Android is available now, and the iPhone app is coming to the App Store. Home Assistant is also supported.
 - Price: €27.99, one payment, no subscription.
 - Buying: order online at https://rewisehome.com/get, with secure card payment through Stripe.
@@ -27,7 +29,8 @@ Rewise Home is an optional plan for Rewise Air owners, at €9.99 a month on a 6
 - [How it works and setup](https://rewisehome.com/how-it-works)
 - [Compatibility checker](https://rewisehome.com/compatibility)
 - [Support and FAQ](https://rewisehome.com/support)
-- [Android app](https://rewisehome.com/android)
+- [Get the app (iPhone and Android)](https://rewisehome.com/apps)
+- [Compare with other smart AC controllers](https://rewisehome.com/compare)
 - [Terms](https://rewisehome.com/terms) and [Privacy](https://rewisehome.com/privacy)
 
 ## Contact

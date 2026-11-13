@@ -63,22 +63,31 @@
       if (enabled) { buy.setAttribute("href", href); buy.removeAttribute("aria-disabled"); }
       else { buy.removeAttribute("href"); buy.setAttribute("aria-disabled", "true"); }
     };
+    // These two notes start empty in the page and are written only when needed, so search engines and AI crawlers
+    // reading the raw HTML never see "checkout isn't open" or "sold out" wording that visitors don't.
+    var say = function (selector, before, link, after) {
+      var node = document.querySelector(selector);
+      var target = node.getAttribute("data-href") || "enquire.html#enquiry";
+      node.innerHTML = before + '<a href="' + target + '">' + link + "</a>" + after;
+      node.hidden = false;
+    };
     var showAvailability = function (tries) {
       call("GET", "/v1/checkout/config").then(function (result) {
         var config = result.body || {};
         document.querySelector("[data-buy-soldout]").hidden = true;
+        document.querySelector("[data-buy-soldout]").innerHTML = "";
         if (!usable(config)) {
           buy.hidden = true;
           buyState.hidden = true;
           document.querySelector("[data-buy-note]").hidden = true;
-          document.querySelector("[data-buy-off]").hidden = false;
+          say("[data-buy-off]", "Online checkout isn’t open right now. ", "Send us an enquiry", " and we’ll email you.");
           return;
         }
         if (config.availability === "sold_out") {
           setBuy(false, "Sold Out");
           buyState.textContent = "Rewise Air is sold out for now.";
           buyState.hidden = false;
-          document.querySelector("[data-buy-soldout]").hidden = false;
+          say("[data-buy-soldout]", "Send us an ", "enquiry", " and we’ll tell you when there are more.");
         } else if (config.availability === "temporarily_unavailable") {
           // Unpaid checkouts hold every unit for now; they're not sold. Look again in a while.
           setBuy(false, "Buy Now");
