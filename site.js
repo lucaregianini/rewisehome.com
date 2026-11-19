@@ -1,4 +1,4 @@
-// rewisehome.com: mobile menu, scroll reveals, the enquiry form and the compatibility checker.
+// rewisehome.com: mobile menu, scroll reveals and staggered grids, count-up numbers, films, the enquiry form and the compatibility checker.
 // Rewise Air is on sale at rewisehome.com/get (€27.99, Stripe checkout); the enquiry form is for questions and Rewise Home.
 (function () {
   "use strict";
@@ -32,9 +32,63 @@
     });
   }
 
+  var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Grids come in one item after another (styles.css: .stagger)
+  if (!still && "IntersectionObserver" in window) {
+    document.querySelectorAll(".bento, .steps, .stats, .spec-chips, .needs, .rail, .plans, .status-list, .brands, .how-order, .app-cards")
+      .forEach(function (grid) {
+        grid.classList.add("stagger");
+        Array.prototype.forEach.call(grid.children, function (child, i) { child.style.setProperty("--i", Math.min(i, 12)); });
+        if (!grid.closest(".reveal") && !grid.classList.contains("reveal")) grid.classList.add("reveal");
+      });
+  }
+
+  // Numbers count up the first time they're seen
+  function countUp(el) {
+    var end = parseFloat(el.getAttribute("data-count")), suffix = el.getAttribute("data-suffix") || "", start = null;
+    function step(time) {
+      if (start === null) start = time;
+      var t = Math.min((time - start) / 1200, 1), eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = Math.round(end * eased) + suffix;
+      if (t < 1) requestAnimationFrame(step);
+    }
+    el.textContent = "0" + suffix;
+    requestAnimationFrame(step);
+  }
+  var counters = document.querySelectorAll("[data-count]");
+  if (counters.length && !still && "IntersectionObserver" in window) {
+    var counting = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) { countUp(entry.target); counting.unobserve(entry.target); }
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(function (el) { counting.observe(el); });
+  }
+
+  // Films play muted while on screen; the button turns the sound on
+  var films = document.querySelectorAll("video[data-film]");
+  if (films.length) {
+    var playing = "IntersectionObserver" in window ? new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var video = entry.target;
+        if (entry.isIntersecting && !still) { video.play().catch(function () {}); } else { video.pause(); }
+      });
+    }, { threshold: 0.5 }) : null;
+    films.forEach(function (video) {
+      if (playing) playing.observe(video);
+      var sound = video.parentNode.querySelector("[data-film-sound]");
+      if (sound) sound.addEventListener("click", function () {
+        video.muted = !video.muted;
+        if (!video.muted) video.play().catch(function () {});
+        sound.setAttribute("aria-pressed", video.muted ? "false" : "true");
+        sound.setAttribute("aria-label", video.muted ? "Turn sound on" : "Turn sound off");
+      });
+    });
+  }
+
   // Reveal sections as they scroll in
   var reveals = document.querySelectorAll(".reveal");
-  var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (!("IntersectionObserver" in window) || still) {
     reveals.forEach(function (el) { el.classList.add("in"); });
   } else {
@@ -124,6 +178,7 @@
         return (chip.dataset.aka || "").split("|").some(function (n) { return n && starts(n); });
       });
       chips.forEach(function (chip) { chip.classList.toggle("hit", matches.indexOf(chip) !== -1); });
+      if (chips.length) chips[0].parentNode.classList.toggle("searching", matches.length > 0);
       var hit = matches[0] || null;
       if (!query) { result.textContent = ""; return; }
       result.innerHTML = "";
