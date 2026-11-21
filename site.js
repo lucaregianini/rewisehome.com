@@ -44,6 +44,50 @@
       });
   }
 
+  // Phones: the order bar slides up once the hero has scrolled away, and steps aside at the footer
+  var buybar = document.querySelector("[data-buybar]");
+  if (buybar) {
+    var hero = document.querySelector("main > section");
+    var foot = document.querySelector("footer");
+    var placeBar = function () {
+      var past = hero ? hero.getBoundingClientRect().bottom < 0 : scrollY > 500;
+      var atFoot = foot ? foot.getBoundingClientRect().top < innerHeight - 40 : false;
+      var show = past && !atFoot;
+      buybar.classList.toggle("show", show);
+      buybar.setAttribute("aria-hidden", show ? "false" : "true");
+      buybar.querySelector("a").tabIndex = show ? 0 : -1;
+    };
+    addEventListener("scroll", placeBar, { passive: true });
+    addEventListener("resize", placeBar);
+    placeBar();
+  }
+
+  // Savings calculator: seasonal average draw × hours × days × price (the same rough model as the app's estimates)
+  document.querySelectorAll("[data-calc]").forEach(function (calc) {
+    var price = parseFloat(calc.getAttribute("data-price")) || 0.13, PRICE_AIR = 27.99;
+    var q = function (sel) { return calc.querySelector(sel); };
+    var out = function (name, text) { var el = q('[data-out="' + name + '"]'); if (el) el.textContent = text; };
+    var euro = function (n) { return "€" + n.toFixed(2); };
+    var update = function () {
+      var watts = parseFloat(q("[data-calc-size]").value), acs = +q("[data-calc-acs]").value;
+      var hours = +q("[data-calc-hours]").value, saved = Math.min(+q("[data-calc-saved]").value, hours);
+      var perHour = watts / 1000 * price * acs, cost = perHour * hours * 30, save = perHour * saved * 30;
+      out("acs", acs); out("hours", hours); out("saved", saved);
+      out("cost", euro(cost)); out("save", euro(save));
+      var wrap = q('[data-out-wrap="payback"]');
+      if (save > 0) {
+        var months = Math.ceil(PRICE_AIR * acs / save);  // one Rewise Air per AC
+        out("payback", months > 36 ? "more than 3 years" : months === 1 ? "a month" : months + " months");
+        wrap.hidden = false;
+      } else { wrap.hidden = true; }
+      var share = cost > 0 ? save / cost * 100 : 0;
+      q("[data-bar-keep]").style.flexBasis = (100 - share) + "%";
+      q("[data-bar-save]").style.flexBasis = share + "%";
+    };
+    calc.addEventListener("input", update);
+    update();
+  });
+
   // Numbers count up the first time they're seen
   function countUp(el) {
     var end = parseFloat(el.getAttribute("data-count")), suffix = el.getAttribute("data-suffix") || "", start = null;

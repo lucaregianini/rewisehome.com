@@ -871,3 +871,132 @@ ul.ticks.centred li::before { content: ""; position: absolute; left: 4px; top: 1
 /* Graphite sections: neutral glows instead of blue-tinted ones */
 .dark::before { background: radial-gradient(50% 40% at 15% 20%, rgba(255,255,255,.05), transparent 70%),
   radial-gradient(40% 35% at 90% 85%, rgba(255,255,255,.035), transparent 70%); }
+
+/* ===================================================================== 2026-11-20 (overnight, unpublished) */
+/* Phones: sticky order bar once the hero is gone */
+.buybar { display: none; }
+@media (max-width: 760px) {
+  .buybar { display: flex; align-items: center; justify-content: space-between; gap: 12px; position: fixed; left: 10px; right: 10px;
+    bottom: calc(10px + env(safe-area-inset-bottom)); z-index: 25; padding: 10px 10px 10px 18px; border-radius: 999px;
+    background: rgba(28,28,30,.86); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: 0 16px 40px rgba(0,0,0,.45), inset 0 0 0 .5px rgba(255,255,255,.12);
+    transform: translateY(calc(100% + 30px)); transition: transform .45s var(--ease); }
+  .buybar.show { transform: none; }
+  .buybar b { display: block; font-size: 15px; line-height: 1.2; }
+  .buybar span { font-size: 12px; color: var(--muted); }
+  .buybar .pill { min-height: 40px; padding: 0 18px; font-size: 15px; flex: none; }
+  .buybar.show ~ footer, body:has(.buybar.show) footer { padding-bottom: 96px; }
+}
+/* Order page: questions answered under the Buy button */
+/* Savings calculator */
+.calc { display: grid; grid-template-columns: 1fr 1fr; gap: 0; max-width: 900px; margin: 40px auto 0; text-align: left;
+  border-radius: 28px; overflow: hidden; background: var(--card); box-shadow: inset 0 0 0 .5px var(--line), 0 30px 60px -40px rgba(0,0,0,.5); }
+.calc-inputs { padding: 28px; display: grid; gap: 22px; }
+.calc-field { display: block; }
+.calc-field > span { display: flex; justify-content: space-between; font-size: 15px; font-weight: 600; margin-bottom: 10px; }
+.calc-field output { color: var(--accent); font-variant-numeric: tabular-nums; }
+.calc-field small { display: block; margin-top: 8px; font-size: 13px; color: var(--muted); }
+.calc-field select { width: 100%; min-height: 46px; border: 0; border-radius: 14px; padding: 0 14px; font: inherit; font-size: 15px;
+  color: var(--ink); background: #2c2c2e; appearance: none; cursor: pointer;
+  background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position: calc(100% - 20px) 50%, calc(100% - 15px) 50%; background-size: 5px 5px; background-repeat: no-repeat; }
+.calc input[type=range] { width: 100%; accent-color: var(--accent); height: 28px; cursor: pointer; }
+.calc-result { padding: 32px 28px; background: radial-gradient(80% 60% at 70% 20%, rgba(111,179,210,.12), transparent 70%), #232325;
+  display: flex; flex-direction: column; justify-content: center; }
+.calc-label { margin: 0; color: var(--muted); font-size: 15px; }
+.calc-big { margin: 4px 0 18px; font-size: clamp(44px, 6vw, 60px); font-weight: 700; letter-spacing: -.03em; line-height: 1; font-variant-numeric: tabular-nums; }
+.calc-big small { font-size: 18px; font-weight: 600; color: var(--muted); letter-spacing: 0; margin-left: 4px; }
+.calc-bar { display: flex; height: 12px; border-radius: 6px; overflow: hidden; background: rgba(255,255,255,.08); margin-bottom: 18px; }
+.calc-bar i { display: block; height: 100%; transition: flex-basis .5s var(--ease); }
+.calc-bar [data-bar-keep] { background: rgba(255,255,255,.28); flex-basis: 88%; }
+.calc-bar [data-bar-save] { background: #34c759; flex-basis: 12%; }
+.calc-save { margin: 0; font-size: 18px; }
+.calc-save b { color: #34c759; font-variant-numeric: tabular-nums; }
+.calc-pay { margin: 4px 0 0; font-size: 16px; color: var(--muted); }
+.calc-pay b { color: var(--ink); }
+.calc-note { margin: 18px 0 0; font-size: 12px; color: var(--muted); }
+@media (max-width: 760px) {
+  .calc { grid-template-columns: 1fr; border-radius: 24px; }
+  .calc-inputs { padding: 22px 18px; gap: 18px; }
+  .calc-result { padding: 24px 18px; }
+}
+/* Compare table */
+.compare-table { max-width: 940px; margin: 0 auto; border-radius: 24px; overflow: hidden; background: var(--card);
+  box-shadow: inset 0 0 0 .5px var(--line); text-align: left; }
+.compare-table table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.compare-table th, .compare-table td { padding: 15px 18px; vertical-align: top; border-top: .5px solid var(--line); }
+.compare-table thead th { border-top: 0; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); padding-top: 18px; }
+.compare-table thead th.us { color: var(--accent); }
+.compare-table tbody th { font-weight: 600; width: 22%; }
+.compare-table td.us { background: rgba(111,179,210,.07); color: var(--ink); font-weight: 500; }
+.compare-table thead th.us { background: rgba(111,179,210,.07); }
+.compare-table td:not(.us) { color: var(--muted); }
+.compare-table tbody tr { transition: background .2s var(--ease); }
+.compare-table tbody tr:hover { background: rgba(255,255,255,.03); }
+@media (max-width: 760px) {
+  .compare-table thead { display: none; }
+  .compare-table tr { display: block; padding: 14px 16px; border-top: .5px solid var(--line); }
+  .compare-table tbody tr:first-child { border-top: 0; }
+  .compare-table th, .compare-table td { display: block; border: 0; padding: 0; width: auto !important; }
+  .compare-table tbody th { margin-bottom: 6px; }
+  .compare-table td.us { background: none; margin-bottom: 4px; }
+  .compare-table td.us::before { content: "Rewise Air: "; color: var(--accent); font-weight: 600; }
+  .compare-table td:not(.us)::before { content: "Others: "; font-weight: 600; }
+}
+/* In homes in Malta: real photos and quotes (hidden until there are some) */
+.home-shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 36px; }
+.home-shot { margin: 0; border-radius: 22px; overflow: hidden; aspect-ratio: 4 / 5; background: var(--card); }
+.home-shot img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
+.home-shot:hover img { transform: scale(1.04); }
+.home-shot.placeholder > div { height: 100%; display: grid; place-content: center; gap: 6px; padding: 20px; text-align: center;
+  border: 1.5px dashed rgba(255,255,255,.18); border-radius: 22px; color: var(--muted); }
+.home-shot.placeholder span { font-weight: 700; color: var(--ink); }
+.quotes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 14px; text-align: left; }
+.quote { margin: 0; padding: 24px; border-radius: 22px; background: var(--card); box-shadow: inset 0 0 0 .5px var(--line); }
+.quote p { margin: 0 0 12px; font-size: 18px; line-height: 1.4; }
+.quote cite { font-style: normal; font-size: 14px; color: var(--muted); }
+.quote.placeholder { border: 1.5px dashed rgba(255,255,255,.18); box-shadow: none; }
+@media (max-width: 760px) {
+  .home-shots { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 72%; overflow-x: auto; scroll-snap-type: x mandatory;
+    margin-left: -16px; margin-right: -16px; padding: 0 16px; scrollbar-width: none; }
+  .home-shot { scroll-snap-align: center; }
+  .quotes { grid-template-columns: 1fr; }
+}
+/* About */
+.about-story p { color: var(--muted); font-size: 18px; margin: 14px 0 0; }
+.about-story h2 { margin-bottom: 6px; }
+.about-sign { color: var(--ink) !important; font-weight: 600; }
+.about-stats { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 760px) { .about-stats { grid-template-columns: repeat(2, 1fr); } .about-story p { font-size: 17px; } }
+/* Guides */
+.guide-hero .sub { max-width: 640px; }
+.guide-icon { display: flex; justify-content: center; margin-bottom: 18px; }
+.guide-icon .icon { width: 64px; height: 64px; border-radius: 20px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); }
+.guide-icon .icon svg { width: 32px; height: 32px; }
+.guide-tips .card { grid-column: span 2; display: block; padding: 22px; }
+.guide-tips .card .icon { margin-bottom: 12px; }
+.guide-tips .card p { font-size: 15px; }
+.guide-list { display: grid; gap: 10px; max-width: 640px; margin: 28px auto 0; text-align: left; }
+.guide-link { display: flex; align-items: center; gap: 14px; padding: 14px 18px; border-radius: 18px; background: var(--card); color: var(--ink);
+  box-shadow: inset 0 0 0 .5px var(--line); transition: transform .3s var(--ease), background .3s var(--ease); }
+.guide-link:hover { text-decoration: none; transform: translateX(4px); background: #232325; }
+.guide-link .icon { width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent); flex: none; }
+.guide-link .icon svg { width: 20px; height: 20px; }
+.guide-list.big .guide-link { padding: 18px 20px; font-size: 17px; font-weight: 600; }
+@media (max-width: 760px) { .guide-tips .card { grid-column: auto; } }
+.render-detail { max-width: 320px; margin: 0 auto; width: 100%; }
+
+/* Films keep their size before the video loads (preload="none" gives the browser no size, and centred grids on
+   phones then shrank them to a few pixels): full width up to their max, with a fixed shape. */
+.film { width: 100%; box-sizing: border-box; }
+.film video { aspect-ratio: 16 / 9; object-fit: cover; }
+.film.vertical video { aspect-ratio: 9 / 16; }
+@media (max-width: 760px) {
+  .film.vertical, .how-pair .film, .hero-split .film { width: 100%; max-width: 300px; margin-left: auto; margin-right: auto; }
+  .app-phones .film { max-width: 280px; flex-basis: 100%; }
+}
+/* Phones: a film beside text stacks under it instead of sharing the row */
+@media (max-width: 760px) {
+  .film-split { grid-template-columns: 1fr; }
+  .film-split .film { margin-top: 8px; }
+}
