@@ -236,4 +236,42 @@
       }
     });
   }
+
+  // ------------------------------------------------------------ A3 colour picker (2026-11-25)
+  // Every picker on the page moves together, and the choice is kept for the next page (best effort).
+  var stages = Array.prototype.slice.call(document.querySelectorAll("[data-colour-stage]"));
+  if (stages.length) {
+    var names = { grey: "Grey", black: "Black" };
+    var pick = function (colour, save) {
+      stages.forEach(function (stage) {
+        stage.setAttribute("data-active", colour);
+        stage.querySelectorAll(".colour-layer").forEach(function (layer) {
+          var on = layer.getAttribute("data-colour") === colour;
+          if (on) { layer.removeAttribute("aria-hidden"); var img = layer.querySelector("img"); if (img) img.loading = "eager"; }
+          else layer.setAttribute("aria-hidden", "true");
+        });
+      });
+      document.querySelectorAll(".swatch").forEach(function (b) {
+        b.setAttribute("aria-checked", b.getAttribute("data-pick") === colour ? "true" : "false");
+      });
+      document.querySelectorAll("[data-swatch-name]").forEach(function (n) { n.textContent = names[colour]; });
+      if (save) { try { localStorage.setItem("rewise-colour", colour); } catch (e) {} }
+    };
+    document.addEventListener("click", function (event) {
+      var b = event.target.closest && event.target.closest(".swatch");
+      if (b) pick(b.getAttribute("data-pick"), true);
+    });
+    document.addEventListener("keydown", function (event) {
+      var b = event.target.closest && event.target.closest(".swatch");
+      if (!b || (event.key !== "ArrowRight" && event.key !== "ArrowLeft")) return;
+      var next = b.getAttribute("data-pick") === "grey" ? "black" : "grey";
+      pick(next, true);
+      var target = b.parentNode.querySelector('[data-pick="' + next + '"]');
+      if (target) target.focus();
+      event.preventDefault();
+    });
+    var saved = null;
+    try { saved = localStorage.getItem("rewise-colour"); } catch (e) {}
+    if (saved === "black") pick("black", false);
+  }
 })();

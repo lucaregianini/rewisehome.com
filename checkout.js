@@ -57,6 +57,8 @@
   // The server says only "available", "temporarily_unavailable" or "sold_out": never how many are left.
   if (buy) {
     var buyState = document.querySelector("[data-buy-state]");
+    var card = document.querySelector("#order") || buy;
+    var buyLabel = card.getAttribute("data-buy-label") || "Buy Now";
     var href = buy.getAttribute("href");
     var setBuy = function (enabled, label) {
       buy.textContent = label;
@@ -80,22 +82,24 @@
           buy.hidden = true;
           buyState.hidden = true;
           document.querySelector("[data-buy-note]").hidden = true;
-          say("[data-buy-off]", "Online checkout isn’t open right now. ", "Send us an enquiry", " and we’ll email you.");
+          var offText = card.getAttribute("data-off-text");
+          if (offText) { var off = document.querySelector("[data-buy-off]"); off.textContent = offText; off.hidden = false; }
+          else say("[data-buy-off]", "Online checkout isn’t open right now. ", "Send us an enquiry", " and we’ll email you.");
           return;
         }
         if (config.availability === "sold_out") {
           setBuy(false, "Sold Out");
-          buyState.textContent = "Rewise Air is sold out for now.";
+          buyState.textContent = card.getAttribute("data-soldout-text") || "Rewise Air is sold out for now.";
           buyState.hidden = false;
           say("[data-buy-soldout]", "Send us an ", "enquiry", " and we’ll tell you when there are more.");
         } else if (config.availability === "temporarily_unavailable") {
           // Unpaid checkouts hold every unit for now; they're not sold. Look again in a while.
-          setBuy(false, "Buy Now");
+          setBuy(false, buyLabel);
           buyState.textContent = "Checkout is temporarily unavailable. Please try again shortly.";
           buyState.hidden = false;
           if (tries < 10) setTimeout(function () { showAvailability(tries + 1); }, 30000);
         } else {
-          setBuy(true, "Buy Now");
+          setBuy(true, buyLabel);
           buyState.hidden = true;
         }
       });
