@@ -12,7 +12,7 @@
 - Setup: no new AC, no wiring and no electrician. Add it from the Rewise app; it needs USB-C power and Wi-Fi.
 - Control: the app sends the exact mode, temperature and fan speed, not just a power toggle. It also works with Siri and Shortcuts, Alexa and Home Assistant.
 - Cost: the app shows energy and cost estimates, based on the AC's rated efficiency.
-- Apps: the Rewise app for Android is available now, and the iPhone app is coming to the App Store. Home Assistant is also supported.
+- Apps: the Rewise app is available now for iPhone on the App Store (https://apps.apple.com/mt/app/rewise-smart-ac-control/id6816710912) and for Android from our website. Home Assistant is also supported.
 - Price: €27.99, no subscription. A3 pre-orders: €12.99 deposit by card, €15.00 on delivery, deposit refundable until delivery.
 - Buying: pre-order online at https://rewisehome.com/get, with secure card payment through Stripe.
 - Delivery: free delivery to addresses in Malta.
